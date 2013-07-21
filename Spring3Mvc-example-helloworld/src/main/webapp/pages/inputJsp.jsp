@@ -4,34 +4,36 @@
 	pageEncoding="utf-8"%>
 
 <html>
+
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Hello World</title>
-<base href="${pageContext.request.contextPath}/">
+	<title>Hello World</title>
+	<base href="${pageContext.request.contextPath}/">
+	<script type="text/javascript" src="js/script.js"></script>
+	<link type="text/css" rel="stylesheet" href="css/style.css">
 </head>
 
+
 <body>
-<form action="input/handle-button-ok" method="post">
-<div style="width: 400px; font-family: Arial; font-size: 9pt;">
-	<table>
+<form name="form" method="post" action="input/handle-button-ok">
+
+	<table align="center" frame="border" class="mainTable">
 		<tr>
-			<td colspan="2" style="padding-bottom: 10px;">
+			<td>
 				<h2>Hello World</h2>
-				<h3>Page: <b>Input</b></h3>
+				<h3>Page: <b>Hello</b></h3>
 			</td>
 		</tr>
 		<tr>
-			<td>Type your name:</td>
-			<td><input type="text" id="name" name="name" value="${command.name}" size="10"/></td>
+			<td>Type your name:	<input type="text" placeholder="First Name" id="name" name="name" value="${command.name}" size="10"/></td>
 		</tr>
 		<tr>
-			<td colspan="2">
-				<input type="submit" id="ok" name="ok" value="OK"/>
-			</td>
+			<td><input type="submit" id="ok" name="ok" value="OK"/></td>
 		</tr>		
 	</table>
-</div>
+
 </form>
 </body>
+
 
 </html>
