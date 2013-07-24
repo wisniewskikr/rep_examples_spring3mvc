@@ -2,8 +2,10 @@ package pl.kwi.controllers;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -38,9 +40,14 @@ public class InputController{
 	
 	@RequestMapping(value="/handle-button-ok", method=RequestMethod.POST)
 	public ModelAndView handleButtonOk(
-			@ModelAttribute("command")InputCommand command,
+			@Valid @ModelAttribute("command")InputCommand command,
+			BindingResult bindingResult,
 			HttpServletRequest request, 
 			HttpServletResponse response){
+		
+		if(bindingResult.hasErrors()) {
+			return displayPage(command, request, response);
+		}
 		
 		String name = command.getName();
 		nameService.save(name);

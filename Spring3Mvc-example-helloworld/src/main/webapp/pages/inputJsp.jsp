@@ -2,6 +2,7 @@
 
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags/form"%>	
 
 <html>
 
@@ -9,30 +10,38 @@
 <head>
 	<title>Hello World</title>
 	<base href="${pageContext.request.contextPath}/">
-	<script type="text/javascript" src="js/script.js"></script>
 	<link type="text/css" rel="stylesheet" href="css/style.css">
+	<link type="text/css" rel="stylesheet" href="css/jquery-ui-1.10.3/smoothness/jquery-ui-1.10.3.custom.css">
+	<script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+	<script type="text/javascript" src="js/jquery-ui-1.10.3.custom.js"></script>
+	<script type="text/javascript">
+		$(function() {
+	    	$( document ).tooltip();
+	  	});
+	</script>	
 </head>
 
 
 <body>
-<form name="form" method="post" action="input/handle-button-ok">
+<spring:form method="post" action="input/handle-button-ok" commandName="command">
 
-	<table align="center" frame="border" class="mainTable">
-		<tr>
-			<td>
-				<h2>Hello World</h2>
-				<h3>Page: <b>Hello</b></h3>
-			</td>
-		</tr>
-		<tr>
-			<td>Type your name:	<input type="text" placeholder="First Name" id="name" name="name" value="${command.name}" size="10"/></td>
-		</tr>
-		<tr>
-			<td><input type="submit" id="ok" name="ok" value="OK"/></td>
-		</tr>		
-	</table>
+	<div class="page">
+		<div class="title"><h2>Hello World</h2></div>
+		<div class="subtitle"><h3>Page: <b>Hello</b></h3></div>
+		<div class="content">
+			<div class="contentElement">
+				<div class="text">Name * <spring:errors path="name" cssClass="error" /> </div>
+				<div class="input"><input type="text" id="name" name="name" value="${name}" title="Type your name here"/></div>
+				<div class="description">Type your name here</div>
+			</div>
+			
+		</div>
+		<div class="buttons">
+			<input type="submit" id="ok" name="ok" value="OK"/>
+		</div>
+	</div>		
 
-</form>
+</spring:form>
 </body>
 
 
