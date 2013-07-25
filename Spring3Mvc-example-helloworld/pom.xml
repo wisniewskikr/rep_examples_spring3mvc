@@ -2,16 +2,69 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
 
+
 	<groupId>pl.kwi</groupId>
 	<artifactId>Spring3Mvc-example-helloworld</artifactId>
 	<packaging>war</packaging>
 	<version>1.0</version>
 	<modelVersion>4.0.0</modelVersion>
+	<name>${project.artifactId}</name>
+	
 	
 	
 	<properties>
 		<spring.version>3.0.4.RELEASE</spring.version>
 	</properties>
+	
+	
+	
+	<profiles>
+	
+		<!-- loc (abbreviation for 'local'): location profile. 
+		Indicates local computer as a place for task profiles. -->
+		<profile>
+			<id>loc</id>			
+			<properties>
+				<!-- Server data -->
+				<server.url>http://localhost:8080/manager/text</server.url>
+				<server.username>admin</server.username>
+				<server.password>admin</server.password>
+				<server.path>/${project.artifactId}</server.path>
+			</properties>							
+		</profile>
+		
+		<!-- deploy: task profile.
+		Deploys project on computer indicates by location profile. -->
+		<profile>
+			<id>deploy</id>									
+			<build>
+				<plugins>					
+					<plugin>
+				        <groupId>org.apache.tomcat.maven</groupId>
+		          		<artifactId>tomcat7-maven-plugin</artifactId>
+		          		<version>2.0</version>
+				        <executions>
+				        	<execution>
+				        		<phase>pre-integration-test</phase>
+				        		<goals>
+				        			<goal>deploy</goal>
+				        		</goals>
+				        	</execution>
+				        </executions>
+				        <configuration>
+				        	<url>${server.url}</url>
+				        	<username>${server.username}</username>
+		          			<password>${server.password}</password>
+		          			<path>${server.path}</path>
+                            <update>true</update>
+				        </configuration>
+				      </plugin>			          
+				</plugins>
+			</build>						
+		</profile>
+	
+	</profiles>
+
 
 
 	<build>		
@@ -27,6 +80,7 @@
 			</plugin>
 		</plugins>
 	</build>
+
 
 
 	<dependencies>		
@@ -54,6 +108,7 @@
 		</dependency>		
 						
 	</dependencies>
+
 
 
 </project>
