@@ -23,17 +23,17 @@
 
 	<div class="page">
 		<div class="title"><h2>Hello World</h2></div>
-		<div class="subtitle"><h3>Page: <b>Hello</b></h3></div>
+		<div class="subtitle"><h3>Page: <b>Input</b></h3></div>
 		<div class="content">
 			<div class="contentElement">
 				<div class="text">Name * <spring:errors path="name" cssClass="error" /> </div>
-				<div class="input"><input type="text" id="name" name="name" value="${name}" title="Type your name here"/></div>
+				<div class="input"><input type="text" id="name" name="name" value="${name}" /></div>
 				<div class="description">Type your name here</div>
 			</div>
 			
 		</div>
 		<div class="buttons">
-			<input type="submit" id="ok" name="ok" value="OK"/>
+			<input type="submit" id="ok" name="ok" value="OK" title="Go to next page"/>
 		</div>
 	</div>		
 

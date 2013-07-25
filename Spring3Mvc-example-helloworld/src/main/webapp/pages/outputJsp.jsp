@@ -2,36 +2,43 @@
 
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags/form"%>		
 
 <html>
+
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Hello World</title>
-<base href="${pageContext.request.contextPath}/">
+	<title>Hello World</title>
+	<base href="${pageContext.request.contextPath}/">
+	<link type="text/css" rel="stylesheet" href="css/style.css">
+	<link type="text/css" rel="stylesheet" href="css/jquery-ui-1.10.3/smoothness/jquery-ui-1.10.3.custom.css">
+	<script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+	<script type="text/javascript" src="js/jquery-ui-1.10.3.custom.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>	
 </head>
 
+
 <body>
-<form action="output/handle-button-back" method="post">
-<div style="width: 400px; font-family: Arial; font-size: 9pt;">
-	
-	<table>
-		<tr>
-			<td colspan="2" style="padding-bottom: 10px;">
-				<h2>Hello World</h2>
-				<h3>Page: <b>Output</b></h3>
-			</td>
-		</tr>
-		<tr>
-			<td colspan="2">Hello World <b>${command.name}</b></td>
-		</tr>
-		<tr>
-			<td colspan="2">
-				<input type="submit" id="back" name="back" value="Back"/>
-			</td>
-		</tr>		
-	</table>
-</div>
-</form>
+<spring:form method="post" action="output/handle-button-back" commandName="command">
+
+	<div class="page">
+		<div class="title"><h2>Hello World</h2></div>
+		<div class="subtitle"><h3>Page: <b>Output</b></h3></div>
+		<div class="content">
+			<div class="contentElement">
+				<div>&nbsp;</div>
+				<div class="text"> Hello World <b>${command.name}</b> </div>
+				<div>&nbsp;</div>
+			</div>
+			
+		</div>
+		<div class="buttons">
+			<input type="submit" id="back" name="back" value="Back" title="Go back to previous page"/>
+		</div>
+	</div>		
+
+</spring:form>
 </body>
+
 
 </html>
