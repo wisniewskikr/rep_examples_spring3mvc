@@ -38,6 +38,8 @@ Ad 2\ Use Maven plugin for deployment
 You can do it using following steps:
 - Go to <tomcat_home>/conf/tomcat-users.xml and add user in manager role. For instance:
   <user username='admin' password='admin' roles='manager-gui,admin-gui,manager-script'/>
+- Set server informations in file: <project_home>/project.properties. You have to set:
+  loc.server.url, loc.server.username, loc.server.password;  
 - Open console;
 - Go to project folder "Spring3Mvc-example-helloworld";
 - Use Maven command for building and deployment project. Command: 
