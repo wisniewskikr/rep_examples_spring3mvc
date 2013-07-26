@@ -4,6 +4,12 @@ import java.io.Serializable;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
+/**
+ * Class with data of page "Input".
+ * 
+ * @author Krzysztof Wisniewski
+ *
+ */
 public class InputCommand implements Serializable{
 	
 	private static final long serialVersionUID = 1L;

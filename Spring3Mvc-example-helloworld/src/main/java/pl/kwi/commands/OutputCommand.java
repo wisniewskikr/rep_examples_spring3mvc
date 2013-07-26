@@ -2,6 +2,12 @@ package pl.kwi.commands;
 
 import java.io.Serializable;
 
+/**
+ * Class with data of page "Output".
+ * 
+ * @author Krzysztof Wisniewski
+ *
+ */
 public class OutputCommand implements Serializable{
 	
 	private static final long serialVersionUID = 1L;

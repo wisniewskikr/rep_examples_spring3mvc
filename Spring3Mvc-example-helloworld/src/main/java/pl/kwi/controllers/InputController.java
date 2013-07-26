@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -15,19 +16,29 @@ import org.springframework.web.servlet.view.RedirectView;
 import pl.kwi.commands.InputCommand;
 import pl.kwi.services.NameService;
 
+/**
+ * Class of controller for page "Input".
+ * 
+ * @author Krzysztof Wisniewski
+ *
+ */
 @Controller
 @RequestMapping(value="/input")
 public class InputController{
 	
 	
+	@Autowired
 	private NameService nameService;
+		
 	
-	
-	public InputController(){
-		nameService = new NameService();
-	}
-	
-	
+	/**
+	 * Method displays default page connected with this controller.
+	 * 
+	 * @param command object InputCommand with page data
+	 * @param request object HttpServletRequest with request from page
+	 * @param response object HttpServletResponse with response to page
+	 * @return object ModelAndView with default page connected with this controller
+	 */
 	@RequestMapping
 	public ModelAndView displayPage(
 			@ModelAttribute("command")InputCommand command,
@@ -38,6 +49,15 @@ public class InputController{
 		
 	}
 	
+	/**
+	 * Method handles action on button "Ok".
+	 * 
+	 * @param command object InputCommand with page data
+	 * @param bindingResult object BindingResult connected with validation
+	 * @param request object HttpServletRequest with request from page
+	 * @param response object HttpServletResponse with response to page
+	 * @return object ModelAndView after action on button "Ok"
+	 */
 	@RequestMapping(value="/handle-button-ok", method=RequestMethod.POST)
 	public ModelAndView handleButtonOk(
 			@Valid @ModelAttribute("command")InputCommand command,
