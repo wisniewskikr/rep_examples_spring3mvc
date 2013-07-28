@@ -75,5 +75,18 @@ public class InputController{
 		return new ModelAndView(new RedirectView("/output", true, true, true));
 		
 	}
+	
+	
+	// ************************************************************************************************** //
+	// ************************************ GETTERS AND SETTERS ***************************************** //
+	// ************************************************************************************************** //
+	
+	
+	public NameService getNameService() {
+		return nameService;
+	}
+	public void setNameService(NameService nameService) {
+		this.nameService = nameService;
+	}
 
 }
