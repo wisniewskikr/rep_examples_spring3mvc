@@ -46,10 +46,11 @@ public class HelloWorldIntg {
 		
         WebArchive war = ShrinkWrap.create(WebArchive.class, WAR_FILE)
         .addPackages(true, "pl.kwi")
-        .addAsLibraries(resolver.resolveAsFiles(new ScopeFilter("", "compile", "runtime")));
+        .addAsLibraries(resolver.resolveAsFiles(new ScopeFilter("", "compile", "runtime")))
+        .addAsResource("conf/spring-conf.xml");
         
         addFilesToWar(war, new File("src/main/webapp"));
-        
+                
         return war;
         
     }
