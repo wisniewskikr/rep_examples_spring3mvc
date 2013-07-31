@@ -1,8 +1,9 @@
 package pl.kwi.intg;
 
+import static org.junit.Assert.assertEquals;
+
 import java.io.File;
 
-import junit.framework.Assert;
 
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
@@ -75,13 +76,13 @@ public class HelloWorldIntg {
 		
 		
 		// Wait
-        wait.until(ExpectedConditions.textToBePresentInElement(By.id("title"), "Hello World - Input"));
+        wait.until(ExpectedConditions.textToBePresentInElement(By.id("title"), "Hello World"));
         
         // Conditions
         title = driver.getTitle();
-        Assert.assertEquals("Hello World - Input", title);
+        assertEquals("Hello World - Input", title);
         text = driver.findElement(By.id("title")).getText();
-        Assert.assertEquals("Hello World", text); 
+        assertEquals("Hello World", text); 
         
         // Actions
         driver.findElement(By.id("name")).sendKeys("Chris");
@@ -92,15 +93,15 @@ public class HelloWorldIntg {
         
         
         // Wait
-        wait.until(ExpectedConditions.textToBePresentInElement(By.id("title"), "Hello World - Output"));
+        wait.until(ExpectedConditions.textToBePresentInElement(By.id("title"), "Hello World"));
         
         // Conditions
         title = driver.getTitle();
-        Assert.assertEquals("Hello World - Output", title);
+        assertEquals("Hello World - Output", title);
         text = driver.findElement(By.id("title")).getText();
-        Assert.assertEquals("Hello World", text);
+        assertEquals("Hello World", text);
         text = driver.findElement(By.id("name")).getText();
-        Assert.assertEquals("Hello World Chris", text); 
+        assertEquals("Hello World Chris", text); 
         
 		
 	}
