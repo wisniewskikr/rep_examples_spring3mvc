@@ -1,6 +1,5 @@
 package pl.kwi.intg;
 
-import static org.junit.Assert.assertEquals;
 
 import java.io.File;
 
@@ -16,15 +15,13 @@ import org.jboss.shrinkwrap.resolver.api.maven.filter.ScopeFilter;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 @RunWith(Arquillian.class)
-public class HelloWorldIntg {
+public class PagesTestIntg {
 	
 	
 	private final static String PATH_HOST = System.getProperty("test.intg.path.host");
@@ -32,9 +29,10 @@ public class HelloWorldIntg {
 	private final static String WAR_FILE = PATH_CONTEXT + ".war";
 
 	private WebDriver driver;
-	private Wait wait;
-	private String text;
-	String title;
+	private Wait<WebDriver> wait;
+	
+	private InputPage inputPage;
+	private OutputPage outputPage;
 	
 	
 	@Deployment
@@ -61,48 +59,41 @@ public class HelloWorldIntg {
 	public void setUp(){
 		
 		driver = new HtmlUnitDriver();
-		wait = new WebDriverWait(driver, 10);
+		wait = new WebDriverWait(driver, 10);		
+		
+		inputPage = new InputPage(driver, wait);
+		outputPage = new OutputPage(driver, wait);
 		
 	}
 	
 	@Test
-	public void testHelloWorld() {
+	public void typeNameToInputPageAndCheckOutputPage() {
 		
-		// INIT
 		driver.get(PATH_HOST + PATH_CONTEXT);
 		
+		inputPage.checkIfPageLoaded();
+		inputPage.typeName("Chris");
+		inputPage.pressButtonOk();
 		
-		// ********** STEP 1 ********** //
+		outputPage.checkIfPageLoaded();
+		outputPage.checkHelloWorldText("Chris");
+		outputPage.pressButtonBack();
 		
+		inputPage.checkIfPageLoaded();
 		
-		// Wait
-        wait.until(ExpectedConditions.textToBePresentInElement(By.id("title"), "Hello World"));
-        
-        // Conditions
-        title = driver.getTitle();
-        assertEquals("Hello World - Input", title);
-        text = driver.findElement(By.id("title")).getText();
-        assertEquals("Hello World", text); 
-        
-        // Actions
-        driver.findElement(By.id("name")).sendKeys("Chris");
-        driver.findElement(By.id("ok")).click();
-        
-        
-        // ********** STEP 2 ********** //
-        
-        
-        // Wait
-        wait.until(ExpectedConditions.textToBePresentInElement(By.id("title"), "Hello World"));
-        
-        // Conditions
-        title = driver.getTitle();
-        assertEquals("Hello World - Output", title);
-        text = driver.findElement(By.id("title")).getText();
-        assertEquals("Hello World", text);
-        text = driver.findElement(By.id("name")).getText();
-        assertEquals("Hello World Chris", text); 
-        
+	}
+	
+	@Test
+	public void typeNoNameToInputPage() {
+		
+		driver.get(PATH_HOST + PATH_CONTEXT);
+		
+		inputPage.checkIfPageLoaded();
+		inputPage.typeName("");
+		inputPage.pressButtonOk();
+		
+		inputPage.checkIfPageLoaded();
+		inputPage.checkIfDisplayedNameValidationError();
 		
 	}
 	
