@@ -8,7 +8,7 @@ http://jboss.org/schema/arquillian/arquillian_1_0.xsd">
        <container qualifier="tomcat" default="true">
            <configuration>
                <property name="unpackArchive">true</property>
-               <property name="bindHttpPort">8181</property>
+               <property name="bindHttpPort">${test.intg.port}</property>
            </configuration>
        </container>
 </arquillian>

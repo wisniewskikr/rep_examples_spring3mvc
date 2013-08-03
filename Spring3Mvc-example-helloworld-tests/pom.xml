@@ -36,7 +36,8 @@
 				<server.path>/${project.artifactId}</server.path>
 				
 				<!-- Test intg data -->
-				<test.intg.path.host>http://localhost:8181/</test.intg.path.host>
+				<test.intg.port>${loc.test.intg.port}</test.intg.port>
+				<test.intg.path.host>http://localhost:${test.intg.port}/</test.intg.path.host>
 				<test.intg.path.context>${project.artifactId}</test.intg.path.context>
 			</properties>							
 		</profile>
@@ -164,6 +165,20 @@
 
 	<build>		
 		<finalName>${artifactId}</finalName>
+		
+		<resources>		
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+		<testResources>
+			<testResource>
+				<directory>src/test/resources</directory>
+				<filtering>true</filtering>
+			</testResource>
+		</testResources>
+		
 		<plugins>
 		
 			<!-- Plugin for java compilator -->
