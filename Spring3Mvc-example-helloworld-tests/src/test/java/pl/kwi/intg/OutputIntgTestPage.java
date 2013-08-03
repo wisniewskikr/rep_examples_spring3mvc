@@ -7,20 +7,15 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Wait;
 
-public class OutputPage {
+
+public class OutputIntgTestPage extends AbstrIntgTestPage{
 	
 	
-	private WebDriver driver;
-	private Wait<WebDriver> wait;
-	private String text;
-	private String title;
-	
-	
-	public OutputPage(WebDriver driver, Wait<WebDriver> wait) {
-		this.driver = driver;
-		this.wait = wait;
+	public OutputIntgTestPage(WebDriver driver, Wait<WebDriver> wait) {
+		super(driver, wait);
 	}
 	
+	@Override
 	public void checkIfPageLoaded() {
 		
 		// Wait
@@ -33,15 +28,5 @@ public class OutputPage {
         assertEquals("Hello World", text); 
 		
 	}
-	
-	public void checkHelloWorldText(String name) {
-		text = driver.findElement(By.id("name")).getText();
-        assertEquals("Hello World " + name, text);
-	}
-	
-	public void pressButtonBack() {
-		driver.findElement(By.id("back")).click();
-	}
-	
 
 }

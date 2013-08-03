@@ -7,20 +7,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Wait;
 
-public class InputPage {
-	
-	
-	private WebDriver driver;
-	private Wait<WebDriver> wait;
-	private String text;
-	private String title;
-	
-	
-	public InputPage(WebDriver driver, Wait<WebDriver> wait) {
-		this.driver = driver;
-		this.wait = wait;
+
+public class InputIntgTestPage extends AbstrIntgTestPage{
+		
+	public InputIntgTestPage(WebDriver driver, Wait<WebDriver> wait) {
+		super(driver, wait);
 	}
 	
+	@Override
 	public void checkIfPageLoaded() {
 		
 		// Wait
@@ -33,19 +27,5 @@ public class InputPage {
         assertEquals("Hello World", text); 
 		
 	}
-	
-	public void typeName(String name) {
-		driver.findElement(By.id("name")).sendKeys(name);
-	}
-	
-	public void pressButtonOk() {
-		driver.findElement(By.id("ok")).click();
-	}
-	
-	public void checkIfDisplayedNameValidationError() {
-		text = driver.findElement(By.id("name.errors")).getText();
-		assertEquals("Please fill this field", text);
-	}
-	
 
 }
