@@ -10,6 +10,8 @@ This project shows how to use framework Spring 3 MVC together with:
 - css;
 - validation.
 
+This project contains also unit and integration tests. 
+
 
 
 
@@ -71,3 +73,32 @@ USAGE
 Type in browser:
 
 http://localhost:8080/Spring3Mvc-example-helloworld
+
+
+
+
+
+UNIT TESTS
+==========
+
+To run unit tests you have to use maven command:
+
+mvn clean install -Ploc,unit
+
+
+
+
+
+INTEGRATION TESTS
+=================
+
+To run integration tests you have to:
+
+- Configure embedded Tomcat
+In file <project_home>/project.properties you have to set embedded Tomcat port.
+Update property "loc.test.intg.port". By default it is "8181".
+
+- Run integration tests
+To run integration tests you have to use maven command:
+
+mvn clean install -Ploc,intg
