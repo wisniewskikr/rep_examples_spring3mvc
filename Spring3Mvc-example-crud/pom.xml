@@ -14,7 +14,10 @@
 	<properties>
 		<!-- Spring properties -->
 		<spring.version>3.1.2.RELEASE</spring.version>	
-		<hibernate.version>4.1.7.Final</hibernate.version>					
+		<!-- Hibernate properties -->
+		<hibernate.version>4.1.7.Final</hibernate.version>
+		<!-- File properties -->
+		<project.properties.file>project.properties</project.properties.file>					
 	</properties>
 	
 	
@@ -27,15 +30,15 @@
 			<id>loc</id>			
 			<properties>
 				<!-- Server data -->
-				<server.url>http://localhost:8080/manager/text</server.url>
-				<server.username>admin</server.username>
-				<server.password>admin</server.password>
+				<server.url>${loc.server.url}</server.url>
+				<server.username>${loc.server.username}</server.username>
+				<server.password>${loc.server.password}</server.password>
 				<server.path>/${project.artifactId}</server.path>
 				
-				<main.db.url>jdbc:mysql://localhost:3306/spring3MVC-example-crud</main.db.url>
-				<main.db.driver>com.mysql.jdbc.Driver</main.db.driver>
-				<main.db.username>root</main.db.username>
-				<main.db.password>P@ssw0rd</main.db.password>				
+				<main.db.url>${loc.main.db.url}</main.db.url>
+				<main.db.driver>${loc.main.db.driver}</main.db.driver>
+				<main.db.username>${loc.main.db.username}</main.db.username>
+				<main.db.password>${loc.main.db.password}</main.db.password>				
 			</properties>							
 		</profile>
 
@@ -90,6 +93,7 @@
 		</testResources>
 		
 		<plugins>
+		
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -98,6 +102,28 @@
 					<target>1.6</target>
 				</configuration>
 			</plugin>
+			
+			<!-- Plugin for reading properties from
+			external file -->
+			<plugin>
+		        <groupId>org.codehaus.mojo</groupId>
+		        <artifactId>properties-maven-plugin</artifactId>
+		        <version>1.0-alpha-2</version>
+		        <executions>
+		          <execution>
+		            <phase>initialize</phase>
+		            <goals>
+		              <goal>read-project-properties</goal>
+		            </goals>
+		            <configuration>
+		              <files>
+		                <file>${project.properties.file}</file>
+		              </files>
+		            </configuration>
+		          </execution>
+		        </executions>
+		      </plugin>
+			
 		</plugins>
 	</build>
 		
