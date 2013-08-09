@@ -2,7 +2,7 @@ package pl.kwi.commands;
 
 import java.io.Serializable;
 
-public class WelcomeCommand implements Serializable{
+public class ViewCommand implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	

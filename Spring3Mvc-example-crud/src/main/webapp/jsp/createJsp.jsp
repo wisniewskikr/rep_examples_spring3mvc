@@ -2,49 +2,44 @@
 
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags/form"%>	
 
 <html>
+
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<base href="${pageContext.request.contextPath}/">
-<title>Hello</title>
-
-<script type="text/javascript">
-
-	function send(action){
-		document.form.action = action;
-		document.form.submit();	
-	}
-	
-</script>
-
+	<title>Hello World</title>
+	<base href="${pageContext.request.contextPath}/">
+	<link type="text/css" rel="stylesheet" href="css/style.css">
+	<link type="text/css" rel="stylesheet" href="css/jquery-ui-1.10.3/smoothness/jquery-ui-1.10.3.custom.css">
+	<script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+	<script type="text/javascript" src="js/jquery-ui-1.10.3.custom.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>	
 </head>
 
-<body>
-<form name="form" method="post">
-<input type="hidden" id="id" name="id" value="${command.id}"/>
 
-<div style="width: 400px; font-family: Arial; font-size: 9pt;">
-	<table>
-		<tr>
-			<td colspan="2" style="padding-bottom: 10px;">
-				<h2>Hello World - Data Base Spring 3</h2>
-				<h3>Site: <b>Create</b></h3>
-			</td>
-		</tr>
-		<tr>
-			<td>Type your name:</td>
-			<td><input type="text" id="userName" name="userName" value="${command.userName}" size="10"/></td>
-		</tr>
-		<tr>
-			<td colspan="2">
-				<input type="button" id="create" name="create" value="Create" onclick="send('create/create-button');"/>
-				<input type="button" id="cancel" name="cancel" value="Cancel" onclick="send('create/cancel-button');"/>
-			</td>
-		</tr>		
-	</table>
-</div>
-</form>
+<body>
+<spring:form id="form" name="form" method="post" commandName="command">
+
+	<div class="page">
+		<div class="title"><h2>Hello World</h2></div>
+		<div class="subtitle"><h3>Page: <b>Create</b></h3></div>
+		<div class="content">
+			<div class="contentElement">
+				<div class="text">Name * <spring:errors path="userName" cssClass="error" /> </div>
+				<div class="input"><input type="text" id="userName" name="userName" /></div>
+				<div class="description">Type your name here</div>
+			</div>
+			
+		</div>
+		<div class="buttons">
+			<input type="button" id="create" name="create" value="Create" onclick="send('create/create-button');" title="Create user"/>
+			<input type="button" id="cancel" name="cancel" value="Cancel" onclick="send('create/cancel-button');" title="Go back to list of users"/>
+		</div>
+	</div>		
+
+</spring:form>
 </body>
+
 
 </html>

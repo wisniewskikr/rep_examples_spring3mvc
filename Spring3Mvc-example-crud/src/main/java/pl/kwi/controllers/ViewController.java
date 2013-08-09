@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import pl.kwi.commands.EditCommand;
+import pl.kwi.commands.ViewCommand;
 import pl.kwi.entities.UserEntity;
 import pl.kwi.services.UserService;
 
@@ -31,14 +32,13 @@ public class ViewController {
 	
 	@RequestMapping("/{id}")
 	public ModelAndView displayPage(
-			@ModelAttribute("command") EditCommand command,
+			@ModelAttribute("command") ViewCommand command,
 			HttpServletRequest request, 
 			HttpServletResponse response,
 			@PathVariable Long id){
 		
 		UserEntity user = userService.readUser(id);
 		command.setUserName(user.getName());
-		command.setId(id);		
 		
 		return new ModelAndView("viewJsp");
 		
@@ -46,7 +46,7 @@ public class ViewController {
 	
 	@RequestMapping(value="/cancel-button", method=RequestMethod.POST)
 	public ModelAndView handleCancelButton(
-			@ModelAttribute("command")EditCommand command,
+			@ModelAttribute("command")ViewCommand command,
 			HttpServletRequest request, 
 			HttpServletResponse response){
 		
