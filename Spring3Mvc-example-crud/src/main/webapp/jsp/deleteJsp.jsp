@@ -2,48 +2,44 @@
 
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags/form"%>	
 
 <html>
+
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<base href="${pageContext.request.contextPath}/">
-<title>Hello</title>
-
-<script type="text/javascript">
-
-	function send(action){
-		document.form.action = action;
-		document.form.submit();	
-	}
-	
-</script>
-
+	<title>Hello World</title>
+	<base href="${pageContext.request.contextPath}/">
+	<link type="text/css" rel="stylesheet" href="css/style.css">
+	<link type="text/css" rel="stylesheet" href="css/jquery-ui-1.10.3/smoothness/jquery-ui-1.10.3.custom.css">
+	<script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+	<script type="text/javascript" src="js/jquery-ui-1.10.3.custom.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>	
 </head>
 
+
 <body>
-<form name="form" method="post">
+<spring:form id="form" name="form" method="post" commandName="command">
 <input type="hidden" id="id" name="id" value="${command.id}"/>
 
-<div style="width: 400px; font-family: Arial; font-size: 9pt;">
-	<table>
-		<tr>
-			<td colspan="2" style="padding-bottom: 10px;">
-				<h2>Hello World - Data Base Spring 3</h2>
-				<h3>Site: <b>Delete</b></h3>
-			</td>
-		</tr>
-		<tr>
-			<td colspan="2">Do you really want delete name: ${command.userName}?</td>
-		</tr>
-		<tr>
-			<td colspan="2">
-				<input type="button" id="delete" name="delete" value="Delete" onclick="send('delete/delete-button');"/>
-				<input type="button" id="cancel" name="cancel" value="Cancel" onclick="send('delete/cancel-button');"/>
-			</td>
-		</tr>		
-	</table>
-</div>
-</form>
+	<div class="page">
+		<div class="title"><h2>Hello World</h2></div>
+		<div class="subtitle"><h3>Page: <b>Delete</b></h3></div>
+		<div class="content">
+			<div class="contentElement">
+				</br>
+				<div class="text">Do you really want delete user: ${command.userName}?</div>
+			</div>
+			
+		</div>
+		<div class="buttons">
+			<input type="button" id="delete" name="delete" value="Delete" onclick="send('delete/delete-button');" title="Delete user"/>
+			<input type="button" id="cancel" name="cancel" value="Cancel" onclick="send('delete/cancel-button');" title="Go back to list of users"/>
+		</div>
+	</div>		
+
+</spring:form>
 </body>
+
 
 </html>
