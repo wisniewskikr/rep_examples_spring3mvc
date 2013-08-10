@@ -27,7 +27,7 @@
 		<div class="content">
 			<div class="contentElement">
 				<div class="text">Selected name is: </div>
-				<div class="input"><input type="text" id="userName" name="userName" value="${command.userName}" disabled="disabled"/></div>
+				<div class="input"><input type="text" id="name" name="name" value="${command.name}" disabled="disabled"/></div>
 				<div class="description">You can not edit name here</div>
 			</div>
 			

@@ -4,18 +4,20 @@ import java.io.Serializable;
 
 public class CreateCommand implements Serializable{
 	
+	
 	private static final long serialVersionUID = 1L;
 	
-	private String userName;
+	private String name;
 	private String submit;
 	private Long id;
 
-	public String getUserName() {
-		return userName;
+	
+	public String getName() {
+		return name;
 	}
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}	
+	public void setName(String name) {
+		this.name = name;
+	}
 	
 	public String getSubmit() {
 		return submit;

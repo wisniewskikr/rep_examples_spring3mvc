@@ -28,7 +28,7 @@
 		<div class="content">
 			<div class="contentElement">
 				</br>
-				<div class="text">Do you really want delete user: ${command.userName}?</div>
+				<div class="text">Do you really want delete user: ${command.name}?</div>
 			</div>
 			
 		</div>

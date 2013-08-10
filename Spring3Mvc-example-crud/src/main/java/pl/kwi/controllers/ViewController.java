@@ -38,7 +38,7 @@ public class ViewController {
 			@PathVariable Long id){
 		
 		UserEntity user = userService.readUser(id);
-		command.setUserName(user.getName());
+		command.setName(user.getName());
 		
 		return new ModelAndView("viewJsp");
 		

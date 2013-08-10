@@ -35,7 +35,7 @@ public class DeleteController {
 			@PathVariable Long id){
 		
 		UserEntity user = userService.readUser(id);
-		command.setUserName(user.getName());
+		command.setName(user.getName());
 		command.setId(id);		
 		
 		return new ModelAndView("deleteJsp");
@@ -50,7 +50,7 @@ public class DeleteController {
 		
 		UserEntity user = new UserEntity();
 		user.setId(command.getId());
-		user.setName(command.getUserName());
+		user.setName(command.getName());
 		userService.deleteUser(user);
 		
 		return new ModelAndView(new RedirectView("/table/", true, true, true));

@@ -47,7 +47,7 @@ public class CreateController {
 		
 		UserEntity user = new UserEntity();
 		user.setId(command.getId());
-		user.setName(command.getUserName());
+		user.setName(command.getName());
 		userService.createUser(user);
 		
 		return new ModelAndView(new RedirectView("/table/", true, true, true));

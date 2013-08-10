@@ -37,7 +37,7 @@ public class EditController {
 			@PathVariable Long id){
 		
 		UserEntity user = userService.readUser(id);
-		command.setUserName(user.getName());
+		command.setName(user.getName());
 		command.setId(id);		
 		
 		return new ModelAndView("editJsp");
@@ -52,7 +52,7 @@ public class EditController {
 		
 		UserEntity user = new UserEntity();
 		user.setId(command.getId());
-		user.setName(command.getUserName());
+		user.setName(command.getName());
 		userService.updateUser(user);
 		
 		return new ModelAndView(new RedirectView("/table/", true, true, true));

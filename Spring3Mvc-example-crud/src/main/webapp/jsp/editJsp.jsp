@@ -28,7 +28,7 @@
 		<div class="content">
 			<div class="contentElement">
 				<div class="text">Selected name is: </div>
-				<div class="input"><input type="text" id="userName" name="userName" value="${command.userName}"/></div>
+				<div class="input"><input type="text" id="name" name="name" value="${command.name}"/></div>
 				<div class="description">You can edit name here</div>
 			</div>
 			

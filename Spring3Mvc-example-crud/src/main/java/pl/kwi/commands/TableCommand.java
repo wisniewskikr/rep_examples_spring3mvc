@@ -7,6 +7,7 @@ import pl.kwi.entities.UserEntity;
 
 public class TableCommand implements Serializable{
 	
+	
 	private static final long serialVersionUID = 1L;
 	
 	private List<UserEntity> users;
