@@ -27,7 +27,7 @@
 		<div class="subtitle"><h3>Page: <b>Edit</b></h3></div>
 		<div class="content">
 			<div class="contentElement">
-				<div class="text">Selected name is: </div>
+				<div class="text">Selected name is: <spring:errors path="name" cssClass="error" /> </div>
 				<div class="input"><input type="text" id="name" name="name" value="${command.name}"/></div>
 				<div class="description">You can edit name here</div>
 			</div>

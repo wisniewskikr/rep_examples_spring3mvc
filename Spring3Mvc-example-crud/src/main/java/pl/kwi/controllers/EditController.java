@@ -2,11 +2,13 @@ package pl.kwi.controllers;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -46,9 +48,14 @@ public class EditController {
 	
 	@RequestMapping(value="/update-button", method=RequestMethod.POST)
 	public ModelAndView handleUpdateButton(
-			@ModelAttribute("command")EditCommand command,
+			@Valid @ModelAttribute("command")EditCommand command,
+			BindingResult bindingResult,
 			HttpServletRequest request, 
 			HttpServletResponse response){
+		
+		if(bindingResult.hasErrors()) {
+			return displayPage(command, request, response, command.getId());
+		}
 		
 		UserEntity user = new UserEntity();
 		user.setId(command.getId());
