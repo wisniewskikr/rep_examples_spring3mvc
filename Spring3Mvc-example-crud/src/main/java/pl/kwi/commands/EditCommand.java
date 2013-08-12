@@ -11,7 +11,6 @@ public class EditCommand implements Serializable{
 	
 	@NotEmpty(message="Please fill this field")
 	private String name;
-	private String submit;
 	private Long id;
 	
 
@@ -21,13 +20,6 @@ public class EditCommand implements Serializable{
 	public void setName(String name) {
 		this.name = name;
 	}	
-	
-	public String getSubmit() {
-		return submit;
-	}
-	public void setSubmit(String submit) {
-		this.submit = submit;
-	}
 	
 	public Long getId() {
 		return id;
