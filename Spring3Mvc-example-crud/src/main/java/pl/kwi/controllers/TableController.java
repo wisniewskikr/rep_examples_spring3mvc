@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -36,17 +37,38 @@ public class TableController{
 		
 		return new ModelAndView("tableJsp");
 		
+	}	
+	
+	@RequestMapping(value="/handle-table-action/{actionName}", method=RequestMethod.POST)
+	protected ModelAndView handleTableAction(
+			@ModelAttribute("command")TableCommand command,
+			BindingResult bindingResult,
+			HttpServletRequest request, 
+			HttpServletResponse response,
+			@PathVariable String actionName) throws Exception{
+		
+		if("create".equals(actionName)) {
+			return new ModelAndView(new RedirectView("/create/", true, true, true));
+		} else if("view".equals(actionName)) {
+			System.out.println("View");
+		} else if("edit".equals(actionName)) {
+			System.out.println("Edit");
+		} else if("delete".equals(actionName)) {
+			System.out.println("Delete");
+		} else {
+			throw new Exception("There is no implementation of action with name: " + actionName);
+		}
+		
+		return new ModelAndView("tableJsp");
+		
 	}
 	
-	@RequestMapping(value="/create-button", method=RequestMethod.POST)
-	public ModelAndView handleCreateButton(
-			@ModelAttribute("command")TableCommand command,
-			HttpServletRequest request, 
-			HttpServletResponse response){
-		
-		return new ModelAndView(new RedirectView("/create/", true, true, true));
-		
-	}
+	
+	
+	
+	
+	
+	//TODO: Remove View, Edit and Delete 
 	
 	@RequestMapping("/view-link/{id}")
 	public ModelAndView handleViewLink(

@@ -20,7 +20,7 @@
 
 
 <body>
-<spring:form id="form" name="form" method="post" commandName="command">
+<spring:form modelAttribute="command">
 
 	<div class="list">
 	
@@ -41,16 +41,16 @@
 		<div id="secPageActions">
 			<ul>
 				<li class="secPageAction">
-					<a href="javascript:send('table/create-button');">Create</a>
+					<a href="javascript:sendWithModel('table/handle-table-action/create', 'command');">Create</a>
 				</li>
 				<li class="secPageAction">
-					<a href="javascript:send('secured/handle-article-list/view-article', 'command');">View</a>
+					<a href="javascript:sendWithModel('table/handle-table-action/view', 'command');">View</a>
 				</li>
 				<li class="secPageAction">
-					<a href="javascript:send('secured/handle-article-list/edit-article', 'command');">Edit</a>
+					<a href="javascript:sendWithModel('table/handle-table-action/edit', 'command');">Edit</a>
 				</li>
 				<li class="secPageAction">
-					<a href="javascript:send('secured/handle-article-list/delete-article', 'command');">Delete</a>
+					<a href="javascript:sendWithModel('table/handle-table-action/delete', 'command');">Delete</a>
 				</li>
 			</ul>		
 		</div>
