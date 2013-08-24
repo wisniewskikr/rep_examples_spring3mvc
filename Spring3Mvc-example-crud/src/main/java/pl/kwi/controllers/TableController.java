@@ -56,8 +56,7 @@ public class TableController{
 			return displayPage(command, request, response);
 		}
 		
-		String[] selectedUsersIds = command.getSelectedUsersIds();
-		String id = selectedUsersIds[0];
+		String id = command.getSelectedUsersIds().get(0);
 		
 		if("create".equals(actionName)) {
 			return new ModelAndView(new RedirectView("/create/", true, true, true));

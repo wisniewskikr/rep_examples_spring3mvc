@@ -1,6 +1,7 @@
 package pl.kwi.commands;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import pl.kwi.entities.UserEntity;
@@ -13,7 +14,7 @@ public class TableCommand implements Serializable{
 	private List<UserEntity> users;
 	private String submit;
 	private String id;
-	private String[] selectedUsersIds;
+	private List<String> selectedUsersIds;
 
 	
 	public List<UserEntity> getUsers() {
@@ -37,12 +38,15 @@ public class TableCommand implements Serializable{
 		this.id = id;
 	}
 	
-	public String[] getSelectedUsersIds() {
+	public List<String> getSelectedUsersIds() {
+		if(selectedUsersIds == null) {
+			selectedUsersIds = new ArrayList<String>();
+		}
 		return selectedUsersIds;
 	}
-	public void setSelectedUsersIds(String[] selectedUsersIds) {
+	public void setSelectedUsersIds(List<String> selectedUsersIds) {
 		this.selectedUsersIds = selectedUsersIds;
-	}	
-	
+	}
+		
 	
 }

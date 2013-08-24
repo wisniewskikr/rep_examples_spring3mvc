@@ -18,11 +18,11 @@ public class TableCommandValidator implements Validator{
 		
 		TableCommand command = (TableCommand) target;
 		
-		if(command.getSelectedUsersIds().length == 0) {
+		if(command.getSelectedUsersIds().isEmpty()) {
 			errors.rejectValue("selectedUsersIds", null, "Select at least on row");
 		}
 		
-		if(command.getSelectedUsersIds().length > 1) {
+		if(command.getSelectedUsersIds().size() > 1) {
 			errors.rejectValue("selectedUsersIds", null, "Only one row can be selected");
 		}
 		
