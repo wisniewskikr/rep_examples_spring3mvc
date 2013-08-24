@@ -61,7 +61,7 @@
 }
 
 .listHeader {
-	border-bottom: 1px solid #ECECEC;
+	border-bottom: 3px solid #ECECEC;
 	text-align: left;
 }
 
@@ -73,16 +73,16 @@
 
 .listHeaderTitle {
 	display: inline-block;
-	border: 1px solid #ECECEC;
+	border: 3px solid #ECECEC;
 	border-bottom-style: none;
 	border-radius: 3px 3px 0 0;
 	padding: 0 20px 0 20px;
 	background-color: white;
-	margin-bottom: -1px;
+	margin-bottom: -3px;
 }
 
 .listActions {
-	border-bottom: 1px solid #ECECEC;
+	border-bottom: 3px solid #ECECEC;
 	text-align: right;
 }
 
