@@ -104,3 +104,16 @@
 .listActions ul li a:HOVER{
 	font-weight: bolder;
 }
+
+.listItems div {
+	border-bottom: 1px solid #ECECEC;
+	text-align: left;
+}
+
+.listItems input {
+	margin-left: 10px;
+}
+
+.listItems label {
+	padding-left: 30px;
+}
