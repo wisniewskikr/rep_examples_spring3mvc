@@ -22,90 +22,52 @@
 <body>
 <spring:form modelAttribute="command">
 
-	<div class="list">
-	
-	
-	
-		<spring:errors path="*" cssClass="errorblock" element="div" />
-	
-	
-	
+	<div class="page">
+		<div class="title"><h2>Hello World</h2></div>
+		<div class="subtitle"><h3>Page: <b>Table</b></h3></div>
+		<div class="content">
 		
-		<div id="secPageHeader">
-			<ul>
-				<li class="secPageTitle">Article List</li>
-			</ul>
-		</div>
+			<spring:errors path="*" cssClass="errorblock" element="div" />
+			
+			<div>
+				<ul>
+					<li>User List</li>
+				</ul>
+			</div>
 		
-		
-		<div id="secPageActions">
-			<ul>
-				<li class="secPageAction">
-					<a href="javascript:sendWithModel('table/handle-table-action/create', 'command');">Create</a>
-				</li>
-				<li class="secPageAction">
-					<a href="javascript:sendWithModel('table/handle-table-action/view', 'command');">View</a>
-				</li>
-				<li class="secPageAction">
-					<a href="javascript:sendWithModel('table/handle-table-action/edit', 'command');">Edit</a>
-				</li>
-				<li class="secPageAction">
-					<a href="javascript:sendWithModel('table/handle-table-action/delete', 'command');">Delete</a>
-				</li>
-			</ul>		
-		</div>
-		
-		
-		<div id="secPageContent">
-		
-			<table class="secPageContentTable">			
+			<div>
+				<ul>
+					<li>
+						<a href="javascript:sendWithModel('table/handle-table-action/create', 'command');">Create</a>
+					</li>
+					<li>
+						<a href="javascript:sendWithModel('table/handle-table-action/view', 'command');">View</a>
+					</li>
+					<li>
+						<a href="javascript:sendWithModel('table/handle-table-action/edit', 'command');">Edit</a>
+					</li>
+					<li>
+						<a href="javascript:sendWithModel('table/handle-table-action/delete', 'command');">Delete</a>
+					</li>
+				</ul>		
+			</div>
+			
+			<div>
 				<c:choose>
-					
-							
 					<c:when test="${command.users == null || 
 									empty command.users}">
-									
-						<tr><td id="secPageContentTableNoData">No data</td></tr>
-						
+						<span>No Data</span>			
 					</c:when>
-					
-					
 					<c:otherwise>
-						<c:forEach items="${command.users}" var="user">
-						
-						<tr class="secPageContentRow">
-							<td class="secPageContentColumnPoint">
-								<span class="secPageContentPoint"></span>
-							</td>
-							<td class="secPageContentColumnCheckbox">
-								<input id="${user.id}" class="secPageContentCheckbox" type="checkbox"/>
-							</td>
-							<td class="secPageContentColumnText">
-								<div class="secPageContentTitle"><a href="secured/view-article/${user.id}">${user.name}</a></div>
-							</td>							
-						</tr>
-						
-						</c:forEach>
+						<spring:checkboxes items="${command.users}" itemLabel="name" itemValue="id" path="selectedUsersIds"/>
 					</c:otherwise>
-										
-					
-				</c:choose>						
-			</table>
+				</c:choose>	
+			</div>
 			
-			<spring:checkboxes items="${command.users}" itemLabel="name" itemValue="id" path="selectedUsersIds"/>	
-	
+			
 		</div>
 		
-		
-		
-		
-		
-		
-		
-		
 	</div>		
-	
-	
 
 </spring:form>
 </body>
