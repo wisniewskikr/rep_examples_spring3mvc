@@ -59,3 +59,48 @@
 	color: red;
 	float: right;
 }
+
+.listHeader {
+	border-bottom: 1px solid #ECECEC;
+	text-align: left;
+}
+
+.listHeader ul{
+	margin-bottom: 0px;
+	margin-left: 0px;
+	padding-left: 0px;
+}
+
+.listHeaderTitle {
+	display: inline-block;
+	border: 1px solid #ECECEC;
+	border-bottom-style: none;
+	border-radius: 3px 3px 0 0;
+	padding: 0 20px 0 20px;
+	background-color: white;
+	margin-bottom: -1px;
+}
+
+.listActions {
+	border-bottom: 1px solid #ECECEC;
+	text-align: right;
+}
+
+.listActions ul{
+	margin-bottom: 0px;
+	margin-left: 0px;
+	margin-top: 3px;
+}
+
+.listActions ul li{
+	display: inline-block;
+	margin-left: 3px;
+}
+
+.listActions ul li a{
+	color: #5F5F5F;
+}
+
+.listActions ul li a:HOVER{
+	font-weight: bolder;
+}

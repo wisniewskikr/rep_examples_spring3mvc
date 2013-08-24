@@ -29,13 +29,13 @@
 		
 			<spring:errors path="*" cssClass="errorblock" element="div" />
 			
-			<div>
+			<div class="listHeader">
 				<ul>
-					<li>User List</li>
+					<li class="listHeaderTitle">User List</li>
 				</ul>
 			</div>
 		
-			<div>
+			<div class="listActions">
 				<ul>
 					<li>
 						<a href="javascript:sendWithModel('table/handle-table-action/create', 'command');">Create</a>

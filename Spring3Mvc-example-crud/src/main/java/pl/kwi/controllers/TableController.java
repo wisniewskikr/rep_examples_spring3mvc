@@ -52,15 +52,17 @@ public class TableController{
 			HttpServletResponse response,
 			@PathVariable String actionName) throws Exception{
 		
+		if("create".equals(actionName)) {
+			return new ModelAndView(new RedirectView("/create/", true, true, true));
+		} 
+		
 		if(bindingResult.hasErrors()) {
 			return displayPage(command, request, response);
 		}
 		
 		String id = command.getSelectedUsersIds().get(0);
 		
-		if("create".equals(actionName)) {
-			return new ModelAndView(new RedirectView("/create/", true, true, true));
-		} else if("view".equals(actionName)) {
+		if("view".equals(actionName)) {
 			return new ModelAndView(new RedirectView("/view/" + id, true, true, true));
 		} else if("edit".equals(actionName)) {
 			return new ModelAndView(new RedirectView("/edit/" + id, true, true, true));
