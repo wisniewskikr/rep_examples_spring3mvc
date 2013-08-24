@@ -26,7 +26,7 @@
 	
 	
 	
-	
+		<spring:errors path="*" cssClass="errorblock" element="div" />
 	
 	
 	
@@ -87,10 +87,12 @@
 						
 						</c:forEach>
 					</c:otherwise>
-					
+										
 					
 				</c:choose>						
-			</table>	
+			</table>
+			
+			<spring:checkboxes items="${command.users}" itemLabel="name" itemValue="id" path="selectedUsersIds"/>	
 	
 		</div>
 		
@@ -102,9 +104,9 @@
 		
 		
 	</div>		
+	
+	
 
 </spring:form>
 </body>
-
-
 </html>

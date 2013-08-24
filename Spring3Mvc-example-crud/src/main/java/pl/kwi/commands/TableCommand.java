@@ -13,6 +13,7 @@ public class TableCommand implements Serializable{
 	private List<UserEntity> users;
 	private String submit;
 	private String id;
+	private String[] selectedUsersIds;
 
 	
 	public List<UserEntity> getUsers() {
@@ -34,6 +35,14 @@ public class TableCommand implements Serializable{
 	}
 	public void setId(String id) {
 		this.id = id;
+	}
+	
+	public String[] getSelectedUsersIds() {
+		return selectedUsersIds;
+	}
+	public void setSelectedUsersIds(String[] selectedUsersIds) {
+		this.selectedUsersIds = selectedUsersIds;
 	}	
+	
 	
 }
