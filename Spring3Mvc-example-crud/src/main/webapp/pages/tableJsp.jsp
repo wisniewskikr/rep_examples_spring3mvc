@@ -58,7 +58,7 @@
 				<c:choose>
 					<c:when test="${command.users == null || 
 									empty command.users}">
-						<span>No Data</span>			
+						<div>No Data</div>			
 					</c:when>
 					<c:otherwise>
 						<spring:checkboxes element="div" items="${command.users}" itemLabel="name" itemValue="id" path="selectedUsersIds"/>
