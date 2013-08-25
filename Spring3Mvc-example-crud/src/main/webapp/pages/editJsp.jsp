@@ -35,7 +35,7 @@
 		</div>
 		<div class="buttons">
 			<input type="button" id="update" name="update" value="Update" onclick="send('edit/update-button');" title="Update name"/>
-			<input type="button" id="cancel" name="cancel" value="Cancel" onclick="send('edit/cancel-button');" title="Go back to list of users"/>
+			<input type="button" id="back" name="back" value="Back" onclick="send('edit/back-button');" title="Go back to list of users"/>
 		</div>
 	</div>		
 

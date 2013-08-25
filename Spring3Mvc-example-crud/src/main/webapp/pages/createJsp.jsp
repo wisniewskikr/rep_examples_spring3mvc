@@ -34,7 +34,7 @@
 		</div>
 		<div class="buttons">
 			<input type="button" id="create" name="create" value="Create" onclick="send('create/create-button');" title="Create user"/>
-			<input type="button" id="cancel" name="cancel" value="Cancel" onclick="send('create/cancel-button');" title="Go back to list of users"/>
+			<input type="button" id="back" name="back" value="Back" onclick="send('create/back-button');" title="Go back to list of users"/>
 		</div>
 	</div>		
 

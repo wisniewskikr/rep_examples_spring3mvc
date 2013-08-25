@@ -4,8 +4,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -24,8 +22,6 @@ import pl.kwi.services.UserService;
 @RequestMapping("/create")
 public class CreateController {
 	
-	
-	private static final Logger LOG = LoggerFactory.getLogger(CreateController.class);
 	
 	@Autowired
 	private UserService userService;
@@ -61,8 +57,8 @@ public class CreateController {
 		
 	}
 	
-	@RequestMapping(value="/cancel-button", method=RequestMethod.POST)
-	public ModelAndView handleCancelButton(
+	@RequestMapping(value="/back-button", method=RequestMethod.POST)
+	public ModelAndView handleBackButton(
 			@ModelAttribute("command")EditCommand command,
 			HttpServletRequest request, 
 			HttpServletResponse response){

@@ -33,7 +33,7 @@
 			
 		</div>
 		<div class="buttons">
-			<input type="button" id="cancel" name="cancel" value="Cancel" onclick="send('delete/cancel-button');" title="Go back to list of users"/>
+			<input type="button" id="back" name="back" value="Back" onclick="send('delete/back-button');" title="Go back to list of users"/>
 		</div>
 	</div>		
 
