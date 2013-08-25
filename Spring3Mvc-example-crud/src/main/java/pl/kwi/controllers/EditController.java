@@ -27,6 +27,15 @@ public class EditController {
 	private UserService userService;
 	
 	
+	/**
+	 * Method displays page connected with this controller.
+	 * 
+	 * @param command object <code>EditCommand</code> with page data
+	 * @param request object <code>HttpServletRequest</code> with request from browser
+	 * @param response object <code>HttpServletResponse</code> with response sent to browser
+	 * @param id object <code>String</code> with id of user which should be displayed
+	 * @return object <code>ModelAndView</code> with result of this method
+	 */
 	@RequestMapping("/{id}")
 	public ModelAndView displayPage(
 			@ModelAttribute("command") EditCommand command,
@@ -42,6 +51,14 @@ public class EditController {
 		
 	}
 	
+	/**
+	 * * Method handles action after pressing button "Udpate".
+	 * 
+	 * @param command object <code>EditCommand</code> with page data
+	 * @param request object <code>HttpServletRequest</code> with request from browser
+	 * @param response object <code>HttpServletResponse</code> with response sent to browser
+	 * @return object <code>ModelAndView</code> with result of this method
+	 */
 	@RequestMapping(value="/update-button", method=RequestMethod.POST)
 	public ModelAndView handleUpdateButton(
 			@Valid @ModelAttribute("command")EditCommand command,
@@ -62,6 +79,14 @@ public class EditController {
 		
 	}
 	
+	/**
+	 * Method handles action after pressing button "Back".
+	 * 
+	 * @param command object <code>EditCommand</code> with page data
+	 * @param request object <code>HttpServletRequest</code> with request from browser
+	 * @param response object <code>HttpServletResponse</code> with response sent to browser
+	 * @return object <code>ModelAndView</code> with result of this method
+	 */
 	@RequestMapping(value="/back-button", method=RequestMethod.POST)
 	public ModelAndView handleBackButton(
 			@ModelAttribute("command")EditCommand command,

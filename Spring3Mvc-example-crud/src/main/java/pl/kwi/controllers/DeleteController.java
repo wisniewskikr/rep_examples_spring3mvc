@@ -12,7 +12,6 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import pl.kwi.commands.DeleteCommand;
-import pl.kwi.commands.EditCommand;
 import pl.kwi.entities.UserEntity;
 import pl.kwi.services.UserService;
 
@@ -24,6 +23,16 @@ public class DeleteController {
 	@Autowired
 	private UserService userService;
 	
+	
+	/**
+	 * Method displays page connected with this controller.
+	 * 
+	 * @param command object <code>DeleteCommand</code> with page data
+	 * @param request object <code>HttpServletRequest</code> with request from browser
+	 * @param response object <code>HttpServletResponse</code> with response sent to browser
+	 * @param id object <code>String</code> with id of user which should be displayed
+	 * @return object <code>ModelAndView</code> with result of this method
+	 */
 	@RequestMapping("/{id}")
 	public ModelAndView displayPage(
 			@ModelAttribute("command") DeleteCommand command,
@@ -39,6 +48,14 @@ public class DeleteController {
 		
 	}
 	
+	/**
+	 * * Method handles action after pressing button "Delete".
+	 * 
+	 * @param command object <code>DeleteCommand</code> with page data
+	 * @param request object <code>HttpServletRequest</code> with request from browser
+	 * @param response object <code>HttpServletResponse</code> with response sent to browser
+	 * @return object <code>ModelAndView</code> with result of this method
+	 */
 	@RequestMapping("/delete-button")
 	public ModelAndView handleDeleteButton(
 			@ModelAttribute("command")DeleteCommand command,
@@ -54,9 +71,17 @@ public class DeleteController {
 		
 	}
 	
+	/**
+	 * Method handles action after pressing button "Back".
+	 * 
+	 * @param command object <code>DeleteCommand</code> with page data
+	 * @param request object <code>HttpServletRequest</code> with request from browser
+	 * @param response object <code>HttpServletResponse</code> with response sent to browser
+	 * @return object <code>ModelAndView</code> with result of this method
+	 */
 	@RequestMapping("/back-button")
 	public ModelAndView handleBackButton(
-			@ModelAttribute("command")EditCommand command,
+			@ModelAttribute("command")DeleteCommand command,
 			HttpServletRequest request, 
 			HttpServletResponse response){
 		

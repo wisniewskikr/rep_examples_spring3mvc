@@ -27,6 +27,14 @@ public class CreateController {
 	private UserService userService;
 	
 	
+	/**
+	 * Method displays page connected with this controller.
+	 * 
+	 * @param command object <code>CreateCommand</code> with page data
+	 * @param request object <code>HttpServletRequest</code> with request from browser
+	 * @param response object <code>HttpServletResponse</code> with response sent to browser
+	 * @return object <code>ModelAndView</code> with result of this method
+	 */
 	@RequestMapping("/")
 	public ModelAndView displayPage(
 			@ModelAttribute("command") CreateCommand command,
@@ -37,6 +45,15 @@ public class CreateController {
 		
 	}
 	
+	/**
+	 * * Method handles action after pressing button "Create".
+	 * 
+	 * @param command object <code>CreateCommand</code> with page data
+	 * @param bindingResult object <code>BindingResult</code> with results of validation
+	 * @param request object <code>HttpServletRequest</code> with request from browser
+	 * @param response object <code>HttpServletResponse</code> with response sent to browser
+	 * @return object <code>ModelAndView</code> with result of this method
+	 */
 	@RequestMapping(value="/create-button", method=RequestMethod.POST)
 	public ModelAndView handleCreateButton(
 			@Valid @ModelAttribute("command") CreateCommand command,
@@ -57,6 +74,14 @@ public class CreateController {
 		
 	}
 	
+	/**
+	 * Method handles action after pressing button "Back".
+	 * 
+	 * @param command object <code>CreateCommand</code> with page data
+	 * @param request object <code>HttpServletRequest</code> with request from browser
+	 * @param response object <code>HttpServletResponse</code> with response sent to browser
+	 * @return object <code>ModelAndView</code> with result of this method
+	 */
 	@RequestMapping(value="/back-button", method=RequestMethod.POST)
 	public ModelAndView handleBackButton(
 			@ModelAttribute("command")EditCommand command,
