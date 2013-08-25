@@ -2,7 +2,7 @@
 
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags/form"%>	
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>	
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 
 <html>
@@ -20,7 +20,7 @@
 
 
 <body>
-<spring:form modelAttribute="command">
+<form:form modelAttribute="command">
 
 	<div class="page">
 		<div class="title"><h2>Hello World</h2></div>
@@ -28,7 +28,7 @@
 		<div class="content">
 		
 			<div class="errorBlock">
-				<spring:errors path="*" cssClass="errorMessage" element="div" />
+				<form:errors path="*" cssClass="errorMessage" element="div" />
 			</div>
 			
 			<div class="listHeader">
@@ -61,7 +61,7 @@
 						<div>No Data</div>			
 					</c:when>
 					<c:otherwise>
-						<spring:checkboxes element="div" items="${command.users}" itemLabel="name" itemValue="id" path="selectedUsersIds"/>
+						<form:checkboxes element="div" items="${command.users}" itemLabel="name" itemValue="id" path="selectedUsersIds"/>
 					</c:otherwise>
 				</c:choose>	
 			</div>
@@ -71,6 +71,6 @@
 		
 	</div>		
 
-</spring:form>
+</form:form>
 </body>
 </html>

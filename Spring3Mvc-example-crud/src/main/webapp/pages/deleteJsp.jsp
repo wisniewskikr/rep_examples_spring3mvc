@@ -2,7 +2,7 @@
 
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags/form"%>	
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>	
 
 <html>
 
@@ -19,7 +19,7 @@
 
 
 <body>
-<spring:form id="form" name="form" method="post" commandName="command">
+<form:form id="form" name="form" method="post" commandName="command">
 <input type="hidden" id="id" name="id" value="${command.id}"/>
 
 	<div class="page">
@@ -38,7 +38,7 @@
 		</div>
 	</div>		
 
-</spring:form>
+</form:form>
 </body>
 
 

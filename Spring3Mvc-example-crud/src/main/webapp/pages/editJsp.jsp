@@ -2,7 +2,7 @@
 
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags/form"%>	
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>	
 
 <html>
 
@@ -19,7 +19,7 @@
 
 
 <body>
-<spring:form id="form" name="form" method="post" commandName="command">
+<form:form id="form" name="form" method="post" commandName="command">
 <input type="hidden" id="id" name="id" value="${command.id}"/>
 
 	<div class="page">
@@ -27,7 +27,7 @@
 		<div class="subtitle"><h3>Page: <b>Edit</b></h3></div>
 		<div class="content">
 			<div class="contentElement">
-				<div class="text">Selected name is: <spring:errors path="name" cssClass="error" /> </div>
+				<div class="text">Selected name is: <form:errors path="name" cssClass="error" /> </div>
 				<div class="input"><input type="text" id="name" name="name" value="${command.name}"/></div>
 				<div class="description">You can edit name here</div>
 			</div>
@@ -39,7 +39,7 @@
 		</div>
 	</div>		
 
-</spring:form>
+</form:form>
 </body>
 
 

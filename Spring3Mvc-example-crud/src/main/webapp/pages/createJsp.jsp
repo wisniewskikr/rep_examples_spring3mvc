@@ -2,7 +2,7 @@
 
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags/form"%>	
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>	
 
 <html>
 
@@ -19,14 +19,14 @@
 
 
 <body>
-<spring:form id="form" name="form" method="post" commandName="command">
+<form:form id="form" name="form" method="post" commandName="command">
 
 	<div class="page">
 		<div class="title"><h2>Hello World</h2></div>
 		<div class="subtitle"><h3>Page: <b>Create</b></h3></div>
 		<div class="content">
 			<div class="contentElement">
-				<div class="text">Name * <spring:errors path="name" cssClass="error" /> </div>
+				<div class="text">Name * <form:errors path="name" cssClass="error" /> </div>
 				<div class="input"><input type="text" id="name" name="name" /></div>
 				<div class="description">Type your name here</div>
 			</div>
@@ -38,7 +38,7 @@
 		</div>
 	</div>		
 
-</spring:form>
+</form:form>
 </body>
 
 
