@@ -1,74 +1,79 @@
-FROM HIBERNATE 3 TO HIBERNATE 4
+DESCRIPTION
+===========
+
+This is example project built by using framework Spring 3 MVC and Hibernate 4. 
+It shows example implementation of CRUD database actions: create, read, update
+and delete entities from database. This project consists of following pages:
+- table page		: all entities of user from database all displayed here;
+- create page		: implementation of Create action. New user is created in database
+- view page			: implementation of Read action. Specified user is get from database
+- update page		: implementation of Updata action. User is updated in database
+- delete page		: implementation of Delete action. User is deleted from database
+
+This project shows how to use framework Spring 3 MVC together with:
+- java script;
+- css;
+- validation;
+- database.
 
 
 
-I. POM.XML
 
-1. Improve spring and hibernate versions
 
-<properties>
-		<spring.version>3.1.2.RELEASE</spring.version>	
-		<hibernate.version>4.1.7.Final</hibernate.version>	
-	</properties>
-	
-	
-2. Add hibernate 4 dependencies
+PRECONDITIONS
+=============
 
-<!-- Hibernate dependencies -->
- <dependency>
-    <groupId>org.hibernate</groupId>
-    <artifactId>hibernate-core</artifactId>
-    <version>${hibernate.version}</version>
-</dependency>
-<dependency>
-    <groupId>org.hibernate</groupId>
-    <artifactId>hibernate-entitymanager</artifactId>
-    <version>${hibernate.version}</version>
-</dependency> 
-        
-
-3. Add cglib dependencies
-
-<dependency>
-    <groupId>cglib</groupId>
-	<artifactId>cglib</artifactId>
-	<version>2.2</version>
-</dependency>
+This example project requires:
+- Java (tested for version 1.7.0_10);
+- Maven (tested for version 3.0.4);
+- Tomcat (tested for version 7.0.34).
 
 
 
-II. SPRING CONFIGURATION        
-
-1. Change session factory in main and test configuration files
-
-From
-org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean
-To
-org.springframework.orm.hibernate4.LocalSessionFactoryBean
 
 
-2. Change hibernate transacion manager in main and test configuration files
+DEPLOYMENT
+==========
 
-From 
-org.springframework.orm.hibernate3.HibernateTransactionManager
-To
-org.springframework.orm.hibernate4.HibernateTransactionManager
-
-
-
-III. MAIN CODE	
-
-1. Make all method in all services transactional
-@Transactional	
+You can deploy this application in two ways:
+1. Copy war file
+2. Use Maven plugin for deployment
 
 
+Ad 1\ Copy war file
+===================
+You can do it using following steps:
+- Open console;
+- Go to project folder "Spring3Mvc-example-crud";
+- Use Maven command for building project. Command: 
+  
+  mvn clean install
+  
+- Copy file "Spring3Mvc-example-helloworld.war" from <project_home>/target to <tomcat_home>/webapp
 
-IV. TEST CODE
 
-1. Remove DbUnit helper methods
-@TestExecutionListeners({ DependencyInjectionTestExecutionListener.class,
-    						DbUnitTestExecutionListener.class })
-and							
-@DatabaseSetup("/dbunit/input.xml")
+Ad 2\ Use Maven plugin for deployment
+=====================================  
+You can do it using following steps:
+- Go to <tomcat_home>/conf/tomcat-users.xml and add user in manager role. For instance:
 
-2. Implement your own dbunit methods	
+  <user username='admin' password='admin' roles='manager-gui,admin-gui,manager-script'/>
+  
+- Set server informations in file: <project_home>/project.properties. You have to set:
+  loc.server.url, loc.server.username, loc.server.password;  
+- Open console;
+- Go to project folder "Spring3Mvc-example-crud";
+- Use Maven command for building and deployment project. Command:
+ 
+  mvn clean install -Ploc,deploy  
+
+
+
+
+
+USAGE
+=====
+
+Type in browser:
+
+http://localhost:8080/Spring3Mvc-example-crud

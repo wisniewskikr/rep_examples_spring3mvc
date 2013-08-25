@@ -151,7 +151,7 @@
 			<version>1.1.2</version>
 		</dependency>
 		
-		<!-- Log libraries -->
+		<!-- Log dependencies -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
@@ -292,8 +292,6 @@
 			<version>1.0.4</version>
 		</dependency>
 		
-		<!-- JPA libraries -->
-		<!-- Set as "provided" for JBoss - there is it own hibernate -->
 		<!-- Hibernate dependencies -->
 		 <dependency>
 		    <groupId>org.hibernate</groupId>
@@ -304,15 +302,14 @@
 		    <groupId>org.hibernate</groupId>
 		    <artifactId>hibernate-entitymanager</artifactId>
 		    <version>${hibernate.version}</version>
-		</dependency> 
-		
+		</dependency> 		
 		<dependency>
 		    <groupId>cglib</groupId>
 			<artifactId>cglib</artifactId>
 			<version>2.2</version>
 		</dependency>
 		
-		<!-- Data base libraries -->
+		<!-- Data base dependencies -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
