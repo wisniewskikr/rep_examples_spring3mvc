@@ -27,7 +27,9 @@
 		<div class="subtitle"><h3>Page: <b>Table</b></h3></div>
 		<div class="content">
 		
-			<spring:errors path="*" cssClass="errorblock" element="div" />
+			<div class="errorBlock">
+				<spring:errors path="*" cssClass="errorMessage" element="div" />
+			</div>
 			
 			<div class="listHeader">
 				<ul>

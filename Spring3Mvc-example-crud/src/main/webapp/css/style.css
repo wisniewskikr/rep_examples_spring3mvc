@@ -60,6 +60,14 @@
 	float: right;
 }
 
+.errorBlock {
+	min-height: 20px;
+}
+
+.errorMessage {
+	color: red;
+}
+
 .listHeader {
 	border-bottom: 3px solid #ECECEC;
 	text-align: left;
