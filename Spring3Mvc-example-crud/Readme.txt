@@ -1,7 +1,7 @@
 DESCRIPTION
 ===========
 
-This is example project built by using framework Spring 3 MVC and Hibernate 4. 
+This is example project basing on framework Spring 3 MVC and Hibernate 4. 
 It shows example implementation of CRUD database actions: create, read, update
 and delete entities from database. This project consists of following pages:
 - table page		: all entities of user from database all displayed here;
@@ -26,7 +26,29 @@ PRECONDITIONS
 This example project requires:
 - Java (tested for version 1.7.0_10);
 - Maven (tested for version 3.0.4);
-- Tomcat (tested for version 7.0.34).
+- Tomcat (tested for version 7.0.34);
+- MySql (tested for version 5.2.38).
+
+
+
+
+
+CONFIGURATION
+=============
+
+All flexible configuration of project (server`s urls, logins, passwords etc.) can be changed in file:
+<project_home>/project.properties
+
+
+
+
+
+DATABASE
+========
+
+Before project deployment user has to create empty database in MySql. For instance: spring3mvc-example-crud.
+Then this database has to be indicated in file <project_home>/project.properties.
+
 
 
 
@@ -44,12 +66,12 @@ Ad 1\ Copy war file
 ===================
 You can do it using following steps:
 - Open console;
-- Go to project folder "Spring3Mvc-example-crud";
+- Go to project folder;
 - Use Maven command for building project. Command: 
   
   mvn clean install
   
-- Copy file "Spring3Mvc-example-helloworld.war" from <project_home>/target to <tomcat_home>/webapp
+- Copy *.war file from <project_home>/target to <tomcat_home>/webapp
 
 
 Ad 2\ Use Maven plugin for deployment
@@ -62,7 +84,7 @@ You can do it using following steps:
 - Set server informations in file: <project_home>/project.properties. You have to set:
   loc.server.url, loc.server.username, loc.server.password;  
 - Open console;
-- Go to project folder "Spring3Mvc-example-crud";
+- Go to project folder;
 - Use Maven command for building and deployment project. Command:
  
   mvn clean install -Ploc,deploy  
