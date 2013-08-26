@@ -22,11 +22,11 @@
 <form:form id="form" name="form" method="post" commandName="command">
 
 	<div class="page">
-		<div class="title"><h2>Hello World</h2></div>
-		<div class="subtitle"><h3>Page: <b>Create</b></h3></div>
+		<div id="title" class="title"><h2>Hello World</h2></div>
+		<div id="subtitle" class="subtitle"><h3>Page: <b>Create</b></h3></div>
 		<div class="content">
 			<div class="contentElement">
-				<div class="text">Name * <form:errors path="name" cssClass="error" /> </div>
+				<div class="text">Name * <form:errors id="errorName" path="name" cssClass="error" /> </div>
 				<div class="input"><input type="text" id="name" name="name" /></div>
 				<div class="description">Type your name here</div>
 			</div>

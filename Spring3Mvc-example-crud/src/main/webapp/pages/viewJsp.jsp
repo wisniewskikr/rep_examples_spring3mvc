@@ -22,8 +22,8 @@
 <form:form id="form" name="form" method="post" commandName="command">
 
 	<div class="page">
-		<div class="title"><h2>Hello World</h2></div>
-		<div class="subtitle"><h3>Page: <b>View</b></h3></div>
+		<div id="title" class="title"><h2>Hello World</h2></div>
+		<div id="subtitle" class="subtitle"><h3>Page: <b>View</b></h3></div>
 		<div class="content">
 			<div class="contentElement">
 				<div class="text">Selected name is: </div>

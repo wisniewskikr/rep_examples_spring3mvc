@@ -23,12 +23,12 @@
 <form:form modelAttribute="command">
 
 	<div class="page">
-		<div class="title"><h2>Hello World</h2></div>
-		<div class="subtitle"><h3>Page: <b>Table</b></h3></div>
+		<div id="title" class="title"><h2>Hello World</h2></div>
+		<div id="subtitle" class="subtitle"><h3>Page: <b>Table</b></h3></div>
 		<div class="content">
 		
 			<div class="errorBlock">
-				<form:errors path="*" cssClass="errorMessage" element="div" />
+				<form:errors id="errorMessage" path="*" cssClass="errorMessage" element="div" />
 			</div>
 			
 			<div class="listHeader">
@@ -40,16 +40,16 @@
 			<div class="listActions">
 				<ul>
 					<li>
-						<a href="javascript:sendWithModel('table/handle-table-action/create', 'command');">Create</a>
+						<a href="javascript:sendWithModel('table/handle-table-action/create', 'command');" id="create">Create</a>
 					</li>
 					<li>
-						<a href="javascript:sendWithModel('table/handle-table-action/view', 'command');">View</a>
+						<a href="javascript:sendWithModel('table/handle-table-action/view', 'command');" id="view">View</a>
 					</li>
 					<li>
-						<a href="javascript:sendWithModel('table/handle-table-action/edit', 'command');">Edit</a>
+						<a href="javascript:sendWithModel('table/handle-table-action/edit', 'command');" id="edit">Edit</a>
 					</li>
 					<li>
-						<a href="javascript:sendWithModel('table/handle-table-action/delete', 'command');">Delete</a>
+						<a href="javascript:sendWithModel('table/handle-table-action/delete', 'command');" id="delete">Delete</a>
 					</li>
 				</ul>		
 			</div>
@@ -58,7 +58,7 @@
 				<c:choose>
 					<c:when test="${command.users == null || 
 									empty command.users}">
-						<div>No Data</div>			
+						<div id="noData">No Data</div>			
 					</c:when>
 					<c:otherwise>
 						<form:checkboxes element="div" items="${command.users}" itemLabel="name" itemValue="id" path="selectedUsersIds"/>
