@@ -27,7 +27,10 @@
 		<!-- Profile 'loc' (abbreviation for 'local'): location profile. 
 		Indicates local computer as a place for task profiles. -->
 		<profile>
-			<id>loc</id>			
+			<id>loc</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>			
 			<properties>
 				<!-- Server data -->
 				<server.url>${loc.server.url}</server.url>
@@ -38,7 +41,12 @@
 				<main.db.url>${loc.main.db.url}</main.db.url>
 				<main.db.driver>${loc.main.db.driver}</main.db.driver>
 				<main.db.username>${loc.main.db.username}</main.db.username>
-				<main.db.password>${loc.main.db.password}</main.db.password>				
+				<main.db.password>${loc.main.db.password}</main.db.password>
+				
+				<test.db.url>${loc.test.db.url}</test.db.url>
+				<test.db.driver>${loc.test.db.driver}</test.db.driver>
+				<test.db.username>${loc.test.db.username}</test.db.username>
+				<test.db.password>${loc.test.db.password}</test.db.password>				
 			</properties>							
 		</profile>
 
@@ -321,6 +329,25 @@
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-validator</artifactId>
 			<version>4.2.0.Final</version>
+		</dependency>
+		
+		<!-- Unit tests dependencies -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>1.8.5</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.dbunit</groupId>
+			<artifactId>dbunit</artifactId>
+			<version>2.4.8</version>
 		</dependency>
 						
 	</dependencies>
