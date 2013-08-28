@@ -93,4 +93,17 @@ public class TableController{
 		
 	}
 
+		
+	// ************************************************************************************************** //
+	// ************************************ GETTERS AND SETTERS ***************************************** //
+	// ************************************************************************************************** //
+	
+	
+	public UserService getUserService() {
+		return userService;
+	}
+	public void setUserService(UserService userService) {
+		this.userService = userService;
+	}
+
 }
