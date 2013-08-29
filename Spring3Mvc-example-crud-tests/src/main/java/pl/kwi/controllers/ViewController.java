@@ -65,6 +65,19 @@ public class ViewController {
 		return new ModelAndView(new RedirectView("/table/", true, true, true));
 		
 	}
+	
+	
+	// ************************************************************************************************** //
+	// ************************************ GETTERS AND SETTERS ***************************************** //
+	// ************************************************************************************************** //
+	
+	
+	public UserService getUserService() {
+		return userService;
+	}
+	public void setUserService(UserService userService) {
+		this.userService = userService;
+	}
 
 
 }

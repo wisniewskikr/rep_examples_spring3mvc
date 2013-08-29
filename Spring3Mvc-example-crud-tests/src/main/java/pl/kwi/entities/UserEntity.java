@@ -23,6 +23,11 @@ public class UserEntity extends AbstractEntity{
 		this.name = name;
 	}
 	
+	public UserEntity(Long id, String name) {
+		setId(id);
+		this.name = name;
+	}
+	
 	
 	public String getName() {
 		return name;

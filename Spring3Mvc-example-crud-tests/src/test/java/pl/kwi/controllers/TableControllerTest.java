@@ -44,9 +44,10 @@ public class TableControllerTest {
 		
 		TableCommand command = new TableCommand();
 		
-		controller.displayPage(command, null, null);
+		ModelAndView modelAndView = controller.displayPage(command, null, null);
 		
 		assertEquals(3, command.getUsers().size());
+		assertEquals("tableJsp", modelAndView.getViewName());
 
 	}
 	
@@ -78,6 +79,19 @@ public class TableControllerTest {
 	}
 	
 	@Test
+	public void handleTableAction_viewWithError() throws Exception {
+		
+		TableCommand command = new TableCommand();
+		
+		when(bindingResult.hasErrors()).thenReturn(true);
+		
+		ModelAndView modelAndView = controller.handleTableAction(command, bindingResult, null, null, "view");
+		
+		assertEquals("tableJsp", modelAndView.getViewName());
+		
+	}
+	
+	@Test
 	public void handleTableAction_edit() throws Exception {
 		
 		List<String> list = new ArrayList<String>();
@@ -95,6 +109,19 @@ public class TableControllerTest {
 	}
 	
 	@Test
+	public void handleTableAction_editWithError() throws Exception {
+		
+		TableCommand command = new TableCommand();
+		
+		when(bindingResult.hasErrors()).thenReturn(true);
+		
+		ModelAndView modelAndView = controller.handleTableAction(command, bindingResult, null, null, "edit");
+		
+		assertEquals("tableJsp", modelAndView.getViewName());
+		
+	}
+	
+	@Test
 	public void handleTableAction_delete() throws Exception {
 		
 		List<String> list = new ArrayList<String>();
@@ -108,6 +135,19 @@ public class TableControllerTest {
 		RedirectView redirectView = (RedirectView)modelAndView.getView();
 		
 		assertEquals("/delete/1", redirectView.getUrl());
+		
+	}
+	
+	@Test
+	public void handleTableAction_deleteWithError() throws Exception {
+		
+		TableCommand command = new TableCommand();
+		
+		when(bindingResult.hasErrors()).thenReturn(true);
+		
+		ModelAndView modelAndView = controller.handleTableAction(command, bindingResult, null, null, "delete");
+		
+		assertEquals("tableJsp", modelAndView.getViewName());
 		
 	}
 
