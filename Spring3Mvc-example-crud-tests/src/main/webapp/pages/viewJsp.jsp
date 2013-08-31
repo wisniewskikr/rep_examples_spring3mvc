@@ -8,7 +8,7 @@
 
 
 <head>
-	<title>Hello World</title>
+	<title>Hello World - View</title>
 	<base href="${pageContext.request.contextPath}/">
 	<link type="text/css" rel="stylesheet" href="css/style.css">
 	<link type="text/css" rel="stylesheet" href="css/jquery-ui-1.10.3/smoothness/jquery-ui-1.10.3.custom.css">

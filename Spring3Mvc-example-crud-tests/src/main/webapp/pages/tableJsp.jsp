@@ -9,7 +9,7 @@
 
 
 <head>
-	<title>Hello World</title>
+	<title>Hello World - Table</title>
 	<base href="${pageContext.request.contextPath}/">
 	<link type="text/css" rel="stylesheet" href="css/style.css">
 	<link type="text/css" rel="stylesheet" href="css/jquery-ui-1.10.3/smoothness/jquery-ui-1.10.3.custom.css">
@@ -23,7 +23,7 @@
 <form:form modelAttribute="command">
 
 	<div class="page">
-		<div id="title" class="title"><h2>Hello World</h2></div>
+		<div id="title" class="title"><h2 id="titleText">Hello World</h2></div>
 		<div id="subtitle" class="subtitle"><h3>Page: <b>Table</b></h3></div>
 		<div class="content">
 		
