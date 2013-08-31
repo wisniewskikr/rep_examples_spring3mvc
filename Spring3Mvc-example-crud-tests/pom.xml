@@ -43,10 +43,10 @@
 				<main.db.username>${loc.main.db.username}</main.db.username>
 				<main.db.password>${loc.main.db.password}</main.db.password>
 				
-				<test.db.url>${loc.test.db.url}</test.db.url>
-				<test.db.driver>${loc.test.db.driver}</test.db.driver>
-				<test.db.username>${loc.test.db.username}</test.db.username>
-				<test.db.password>${loc.test.db.password}</test.db.password>
+				<test.unit.db.url>${loc.test.unit.db.url}</test.unit.db.url>
+				<test.unit.db.driver>${loc.test.unit.db.driver}</test.unit.db.driver>
+				<test.unit.db.username>${loc.test.unit.db.username}</test.unit.db.username>
+				<test.unit.db.password>${loc.test.unit.db.password}</test.unit.db.password>
 				
 				<test.intg.db.url>${loc.test.intg.db.url}</test.intg.db.url>
 				<test.intg.db.driver>${loc.test.intg.db.driver}</test.intg.db.driver>

@@ -21,7 +21,7 @@ import pl.kwi.entities.UserEntity;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations={
 		"/conf/spring-conf.xml",
-		"/conf/spring-db-test.xml"
+		"/conf/spring-db-test-unit.xml"
 		})
 @Transactional
 public class UserDaoTest {
