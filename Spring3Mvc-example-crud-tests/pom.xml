@@ -48,6 +48,11 @@
 				<test.db.username>${loc.test.db.username}</test.db.username>
 				<test.db.password>${loc.test.db.password}</test.db.password>
 				
+				<test.intg.db.url>${loc.test.intg.db.url}</test.intg.db.url>
+				<test.intg.db.driver>${loc.test.intg.db.driver}</test.intg.db.driver>
+				<test.intg.db.username>${loc.test.intg.db.username}</test.intg.db.username>
+				<test.intg.db.password>${loc.test.intg.db.password}</test.intg.db.password>
+				
 				<!-- Test intg data -->
 				<test.intg.port>${loc.test.intg.port}</test.intg.port>
 				<test.intg.path.host>http://localhost:${test.intg.port}/</test.intg.path.host>

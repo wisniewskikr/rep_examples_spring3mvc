@@ -47,7 +47,7 @@ public class IntgTests {
         .addPackages(true, "pl.kwi")
         .addAsLibraries(resolver.resolveAsFiles(new ScopeFilter("", "compile", "runtime")))
         .addAsResource("conf/spring-conf.xml")
-        .addAsResource("conf/spring-db.xml");
+        .addAsResource("conf/spring-db-test-intg.xml");
         
         IntgTestUtils.addFilesToWar(war, new File("src/main/webapp"));
                 
