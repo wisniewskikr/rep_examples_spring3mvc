@@ -9,9 +9,9 @@ import org.openqa.selenium.support.ui.Wait;
 
 import pl.kwi.intg.utils.AbstrIntgTestPage;
 
-public class TablePage extends AbstrIntgTestPage {
+public class CreatePage extends AbstrIntgTestPage {
 
-	public TablePage(WebDriver driver, Wait<WebDriver> wait) {
+	public CreatePage(WebDriver driver, Wait<WebDriver> wait) {
 		super(driver, wait);
 	}
 
@@ -19,7 +19,7 @@ public class TablePage extends AbstrIntgTestPage {
 	public void checkIfPageLoaded() {
 		
 		// Wait
-        wait.until(ExpectedConditions.titleIs("Hello World - Table"));
+        wait.until(ExpectedConditions.titleIs("Hello World - Create"));
         
         // Conditions
         text = driver.findElement(By.id("titleText")).getText();

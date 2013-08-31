@@ -21,6 +21,7 @@ import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import pl.kwi.intg.pages.CreatePage;
 import pl.kwi.intg.pages.TablePage;
 import pl.kwi.intg.utils.IntgTestUtils;
 
@@ -33,6 +34,7 @@ public class IntgTests {
 	private final static String WAR_FILE = PATH_CONTEXT + ".war";
 	
 	private TablePage tablePage;
+	private CreatePage createPage;
 	
 	
 	@Deployment
@@ -50,7 +52,7 @@ public class IntgTests {
         .addAsResource("conf/spring-db-test-intg.xml");
         
         IntgTestUtils.addFilesToWar(war, new File("src/main/webapp"));
-                
+        
         return war;
         
     }
@@ -63,6 +65,7 @@ public class IntgTests {
 		Wait<WebDriver> wait = new WebDriverWait(driver, 10);		
 		
 		tablePage = new TablePage(driver, wait);
+		createPage = new CreatePage(driver, wait);
 		
 	}
 	
@@ -72,6 +75,14 @@ public class IntgTests {
 		tablePage.initBrowserByUrl(PATH_HOST + PATH_CONTEXT);
 		
 		tablePage.checkIfPageLoaded();
+		tablePage.checkTextInFieldById("noData", "No Data");
+		tablePage.pressButtonById("create");
+		
+		createPage.checkIfPageLoaded();
+		createPage.pressButtonById("back");
+		
+		tablePage.checkIfPageLoaded();
+		tablePage.checkTextInFieldById("noData", "No Data");
 		
 	}
 	
