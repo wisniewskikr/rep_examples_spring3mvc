@@ -24,7 +24,7 @@
 
 	<div class="page">
 		<div id="title" class="title"><h2 id="titleText">Hello World</h2></div>
-		<div id="subtitle" class="subtitle"><h3>Page: <b>Table</b></h3></div>
+		<div id="subtitle" class="subtitle"><h3 id="subtitleText">Page: <b>Table</b></h3></div>
 		<div class="content">
 		
 			<div class="errorBlock">

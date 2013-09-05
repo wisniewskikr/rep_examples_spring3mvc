@@ -483,9 +483,14 @@
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
-			<version>2.24.1</version>
+			<version>2.35.0</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+        	<groupId>org.apache.xmlgraphics</groupId>
+        	<artifactId>batik-ext</artifactId>
+        	<version>1.7</version>
+      	</dependency>
 		
 		<!-- Integration tests dependencies - 
 		javax/persistence/Persistence necessary class -->
@@ -503,9 +508,8 @@
 		    <version>6.0</version>
 		    <scope>provided</scope>
 		</dependency>
-						
-	</dependencies>
-	
+								
+	</dependencies>	
 
 
 </project>

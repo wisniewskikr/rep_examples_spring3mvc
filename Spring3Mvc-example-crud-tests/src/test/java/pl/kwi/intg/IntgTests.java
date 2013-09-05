@@ -12,17 +12,17 @@ import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.jboss.shrinkwrap.resolver.api.DependencyResolvers;
 import org.jboss.shrinkwrap.resolver.api.maven.MavenDependencyResolver;
 import org.jboss.shrinkwrap.resolver.api.maven.filter.ScopeFilter;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import pl.kwi.intg.pages.CreatePage;
 import pl.kwi.intg.pages.TablePage;
+import pl.kwi.intg.pages.ViewPage;
 import pl.kwi.intg.utils.IntgTestUtils;
 
 @RunWith(Arquillian.class)
@@ -35,6 +35,7 @@ public class IntgTests {
 	
 	private TablePage tablePage;
 	private CreatePage createPage;
+	private ViewPage viewPage;
 	
 	
 	@Deployment
@@ -61,11 +62,12 @@ public class IntgTests {
 	@Before
 	public void setUp(){
 		
-		WebDriver driver = new HtmlUnitDriver();
+		WebDriver driver = new FirefoxDriver();
 		Wait<WebDriver> wait = new WebDriverWait(driver, 10);		
 		
 		tablePage = new TablePage(driver, wait);
 		createPage = new CreatePage(driver, wait);
+		viewPage = new ViewPage(driver, wait);
 		
 	}
 	
@@ -76,13 +78,14 @@ public class IntgTests {
 		
 		tablePage.checkIfPageLoaded();
 		tablePage.checkTextInFieldById("noData", "No Data");
-		tablePage.pressButtonById("create");
+		tablePage.clickLinkByText("Create");
 		
 		createPage.checkIfPageLoaded();
 		createPage.pressButtonById("back");
 		
 		tablePage.checkIfPageLoaded();
 		tablePage.checkTextInFieldById("noData", "No Data");
+		tablePage.closeBrowser();
 		
 	}
 	

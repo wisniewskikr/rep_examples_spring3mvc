@@ -3,7 +3,10 @@ package pl.kwi.intg.utils;
 import static org.junit.Assert.assertEquals;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Wait;
 
 public abstract class AbstrIntgTestPage {
@@ -61,6 +64,31 @@ public abstract class AbstrIntgTestPage {
 	 */
 	public void pressButtonById(String id) {
 		driver.findElement(By.id(id)).click();
+	}
+	
+	/**
+	 * Method clicks link with specified id.
+	 * 
+	 * @param id object <code>String</code> with link specified id
+	 */
+	public void clickLinkById(String id) {
+		driver.findElement(By.id(id)).click();
+	}
+	
+	/**
+	 * Method clicks link with specified text.
+	 * 
+	 * @param linkText object <code>String</code> with link specified text
+	 */
+	public void clickLinkByText(String linkText) {
+		driver.findElement(By.linkText(linkText)).click();
+	}
+	
+	/**
+	 * Method closes browser.
+	 */
+	public void closeBrowser() {
+		driver.quit();
 	}
 
 }

@@ -24,6 +24,9 @@ public class CreatePage extends AbstrIntgTestPage {
         // Conditions
         text = driver.findElement(By.id("titleText")).getText();
         assertEquals("Hello World", text); 
+        
+        text = driver.findElement(By.id("subtitleText")).getText();
+        assertEquals("Page: Create", text); 
 
 	}
 
