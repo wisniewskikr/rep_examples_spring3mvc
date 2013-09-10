@@ -52,6 +52,7 @@
 				<test.intg.db.driver>${loc.test.intg.db.driver}</test.intg.db.driver>
 				<test.intg.db.username>${loc.test.intg.db.username}</test.intg.db.username>
 				<test.intg.db.password>${loc.test.intg.db.password}</test.intg.db.password>
+				<test.intg.db.driver>${loc.test.intg.db.driver}</test.intg.db.driver>
 				
 				<!-- Test intg data -->
 				<test.intg.port>${loc.test.intg.port}</test.intg.port>
@@ -153,6 +154,10 @@
 			                	<systemPropertyVariables>
 						            <test.intg.path.host>${test.intg.path.host}</test.intg.path.host>
 						            <test.intg.path.context>${test.intg.path.context}</test.intg.path.context>
+						            <test.intg.db.url>${test.intg.db.url}</test.intg.db.url>
+						            <test.intg.db.user>${test.intg.db.user}</test.intg.db.user>
+						            <test.intg.db.password>${test.intg.db.password}</test.intg.db.password>
+						            <test.intg.db.driver>${test.intg.db.driver}</test.intg.db.driver>
 						          </systemPropertyVariables>			                	
             					<includes>
             						<include>**/IntgTests.java</include>

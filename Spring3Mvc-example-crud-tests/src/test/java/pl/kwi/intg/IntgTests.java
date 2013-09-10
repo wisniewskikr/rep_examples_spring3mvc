@@ -20,6 +20,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import pl.kwi.db.spring.test.DbUnitUtil;
 import pl.kwi.intg.pages.CreatePage;
 import pl.kwi.intg.pages.TablePage;
 import pl.kwi.intg.pages.ViewPage;
@@ -31,6 +32,10 @@ public class IntgTests {
 	
 	private final static String PATH_HOST = System.getProperty("test.intg.path.host");
 	private final static String PATH_CONTEXT = System.getProperty("test.intg.path.context");
+	private final static String DB_URL = System.getProperty("test.intg.db.url");
+	private final static String DB_USER = System.getProperty("test.intg.db.user");
+	private final static String DB_PASSWORD = System.getProperty("test.intg.db.password");
+	private final static String DB_DRIVER = System.getProperty("test.intg.db.driver");
 	private final static String WAR_FILE = PATH_CONTEXT + ".war";
 	
 	private TablePage tablePage;
@@ -73,6 +78,8 @@ public class IntgTests {
 	
 	@Test
 	public void createTestCase() {
+		
+		DbUnitUtil.clearDataFile("/dbunit/userDaoTest.xml", DB_DRIVER, DB_URL, DB_USER, DB_PASSWORD);
 		
 		tablePage.initBrowserByUrl(PATH_HOST + PATH_CONTEXT);
 		
