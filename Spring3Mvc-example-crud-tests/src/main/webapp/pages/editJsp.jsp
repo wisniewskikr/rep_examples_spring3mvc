@@ -23,8 +23,8 @@
 <input type="hidden" id="id" name="id" value="${command.id}"/>
 
 	<div class="page">
-		<div id="title" class="title"><h2>Hello World</h2></div>
-		<div id="subtitle" class="subtitle"><h3>Page: <b>Edit</b></h3></div>
+		<div id="title" class="title"><h2 id="titleText">Hello World</h2></div>
+		<div id="subtitle" class="subtitle"><h3 id="subtitleText">Page: <b>Edit</b></h3></div>
 		<div class="content">
 			<div class="contentElement">
 				<div class="text">Selected name is: <form:errors path="name" cssClass="error" /> </div>

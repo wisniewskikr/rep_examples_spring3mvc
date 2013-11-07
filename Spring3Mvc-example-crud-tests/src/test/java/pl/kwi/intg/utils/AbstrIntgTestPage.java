@@ -1,6 +1,6 @@
 package pl.kwi.intg.utils;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -89,6 +89,25 @@ public abstract class AbstrIntgTestPage {
 	 */
 	public void closeBrowser() {
 		driver.quit();
+	}
+	
+	public void checkBodyInElementByXPath(String xPath, String expectedText) {
+		text = driver.findElement(By.xpath(xPath)).getText();
+        assertEquals(expectedText, text);
+	}
+	
+	public void checkAttributeInElementdById(String id, String attribute, String expectedText) {
+		text = driver.findElement(By.id(id)).getAttribute(attribute);
+        assertEquals(expectedText, text);
+	}
+	
+	public void clearTextInFieldById(String id) {
+		driver.findElement(By.id(id)).clear();
+	}
+	
+	public void checkElementNotExistsByXPath(String xPath) {
+		boolean result = driver.findElements(By.xpath(xPath)).size() < 1;
+		assertTrue(result);
 	}
 
 }

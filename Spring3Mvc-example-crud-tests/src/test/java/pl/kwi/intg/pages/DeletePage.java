@@ -9,9 +9,9 @@ import org.openqa.selenium.support.ui.Wait;
 
 import pl.kwi.intg.utils.AbstrIntgTestPage;
 
-public class ViewPage extends AbstrIntgTestPage {
+public class DeletePage extends AbstrIntgTestPage {
 
-	public ViewPage(WebDriver driver, Wait<WebDriver> wait) {
+	public DeletePage(WebDriver driver, Wait<WebDriver> wait) {
 		super(driver, wait);
 	}
 
@@ -19,14 +19,14 @@ public class ViewPage extends AbstrIntgTestPage {
 	public void checkIfPageLoaded() {
 		
 		// Wait
-        wait.until(ExpectedConditions.titleIs("Hello World - View"));
+        wait.until(ExpectedConditions.titleIs("Hello World - Delete"));
         
         // Conditions
         text = driver.findElement(By.id("titleText")).getText();
         assertEquals("Hello World", text); 
         
         text = driver.findElement(By.id("subtitleText")).getText();
-        assertEquals("Page: View", text);
+        assertEquals("Page: Delete", text);
 
 	}
 

@@ -155,7 +155,7 @@
 						            <test.intg.path.host>${test.intg.path.host}</test.intg.path.host>
 						            <test.intg.path.context>${test.intg.path.context}</test.intg.path.context>
 						            <test.intg.db.url>${test.intg.db.url}</test.intg.db.url>
-						            <test.intg.db.user>${test.intg.db.user}</test.intg.db.user>
+						            <test.intg.db.username>${test.intg.db.username}</test.intg.db.username>
 						            <test.intg.db.password>${test.intg.db.password}</test.intg.db.password>
 						            <test.intg.db.driver>${test.intg.db.driver}</test.intg.db.driver>
 						          </systemPropertyVariables>			                	
