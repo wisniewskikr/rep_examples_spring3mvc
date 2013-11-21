@@ -14,7 +14,24 @@ This project shows how to use framework Spring 3 MVC together with:
 - java script;
 - css;
 - validation;
-- database.
+- database;
+- unit tests;
+- integration tests (Selenium).
+
+Recommended deployment of project:
+----------------------------------
+Maven command:
+mvn clean install -Ploc,deploy 
+
+Recommended usage of project:
+-----------------------------
+Browser url:
+http://localhost:8080/Spring3Mvc-example-crud-tests
+
+Recommended usage of integration tests:
+---------------------------------------
+Maven command:
+mvn clean install -Ploc,intg
 
 
 
@@ -23,11 +40,22 @@ This project shows how to use framework Spring 3 MVC together with:
 PRECONDITIONS
 =============
 
+1. TOOLS
+--------
 This example project requires:
 - Java (tested for version 1.7.0_10);
 - Maven (tested for version 3.0.4);
 - Tomcat (tested for version 7.0.34);
-- MySql (tested for version 5.2.38).
+- MySql (tested for version 5.2.38);
+- browser Mozilla Firefox (for integration tests).
+
+2. DATABASES
+------------
+Before project deployment user has to create empty databases in MySql. After that he has to update
+file <project_home>/project.properties. He has to create following databases:
+- project database				: for instance "spring3mvc-example-crud-tests";
+- unit tests database			: for instance "spring3mvc-example-crud-tests-db-test-unit";
+- integration tests database	: for instance "spring3mvc-example-crud-tests-db-test-intg".
 
 
 
@@ -38,17 +66,6 @@ CONFIGURATION
 
 All flexible configuration of project (server`s urls, logins, passwords etc.) can be changed in file:
 <project_home>/project.properties
-
-
-
-
-
-DATABASE
-========
-
-Before project deployment user has to create empty database in MySql. For instance: spring3mvc-example-crud.
-Then this database has to be indicated in file <project_home>/project.properties.
-
 
 
 
@@ -88,6 +105,19 @@ You can do it using following steps:
 - Use Maven command for building and deployment project. Command:
  
   mvn clean install -Ploc,deploy  
+
+
+
+
+
+
+INTEGRATION TESTS
+=================
+
+This project has set of integration tests based on Selenium tool. To run these integration
+tests use following maven command:
+
+mvn clean install -Ploc,intg
 
 
 
