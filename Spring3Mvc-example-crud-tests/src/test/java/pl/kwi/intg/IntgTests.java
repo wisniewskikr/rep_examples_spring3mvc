@@ -105,11 +105,9 @@ public class IntgTests {
 	}
 	
 	@Test
-	@Ignore
 	public void createTestCase() {
 		
 		DbUnitUtil.clearDataFile("/dbunit/userDaoTest.xml", DB_DRIVER, DB_URL, DB_USERNAME, DB_PASSWORD);
-//		DbUnitUtil.executeDataFile("/dbunit/userDaoTest.xml", DB_DRIVER, DB_URL, DB_USERNAME, DB_PASSWORD);
 				
 		tablePage.initBrowserByUrl(PATH_HOST + PATH_CONTEXT);
 
@@ -130,7 +128,7 @@ public class IntgTests {
 		createPage.pressButtonById("create");
 		
 		tablePage.checkIfPageLoaded();
-//		tablePage.checkTextInBodyByXPath("//label[@for='selectedUsersIds1']", "User1");
+		tablePage.checkBodyInElementByXPath("//label[@for='selectedUsersIds1']", "User1");
 		
 		tablePage.closeBrowser();
 		
@@ -159,7 +157,29 @@ public class IntgTests {
 	}
 	
 	@Test
-	@Ignore
+	public void readTestCaseValidation() {
+		
+		DbUnitUtil.executeDataFile("/dbunit/userDaoTest.xml", DB_DRIVER, DB_URL, DB_USERNAME, DB_PASSWORD);
+		
+		tablePage.initBrowserByUrl(PATH_HOST + PATH_CONTEXT);
+		
+		tablePage.checkIfPageLoaded();	
+		tablePage.clickLinkByText("View");
+		
+		tablePage.checkIfPageLoaded();	
+		tablePage.checkTextInFieldById("errorMessage", "Select at least on row");		
+		tablePage.pressButtonById("selectedUsersIds1");
+		tablePage.pressButtonById("selectedUsersIds2");
+		tablePage.clickLinkByText("View");
+		
+		tablePage.checkIfPageLoaded();	
+		tablePage.checkTextInFieldById("errorMessage", "Only one row can be selected");
+		
+		tablePage.closeBrowser();
+						
+	}
+		
+	@Test
 	public void updateTestCase() {
 		
 		DbUnitUtil.executeDataFile("/dbunit/userDaoTest.xml", DB_DRIVER, DB_URL, DB_USERNAME, DB_PASSWORD);
@@ -187,8 +207,30 @@ public class IntgTests {
 		tablePage.checkBodyInElementByXPath("//label[@for='selectedUsersIds1']", "User4");
 		
 		tablePage.closeBrowser();
+						
+	}
+	
+	@Test
+	public void updateTestCaseValidation() {
 		
-				
+		DbUnitUtil.executeDataFile("/dbunit/userDaoTest.xml", DB_DRIVER, DB_URL, DB_USERNAME, DB_PASSWORD);
+		
+		tablePage.initBrowserByUrl(PATH_HOST + PATH_CONTEXT);
+		
+		tablePage.checkIfPageLoaded();	
+		tablePage.clickLinkByText("Edit");
+		
+		tablePage.checkIfPageLoaded();	
+		tablePage.checkTextInFieldById("errorMessage", "Select at least on row");		
+		tablePage.pressButtonById("selectedUsersIds1");
+		tablePage.pressButtonById("selectedUsersIds2");
+		tablePage.clickLinkByText("Edit");
+		
+		tablePage.checkIfPageLoaded();	
+		tablePage.checkTextInFieldById("errorMessage", "Only one row can be selected");
+		
+		tablePage.closeBrowser();
+						
 	}
 	
 	@Test
@@ -224,8 +266,30 @@ public class IntgTests {
 		tablePage.checkElementNotExistsByXPath("//label[@for='selectedUsersIds3']");
 		
 		tablePage.closeBrowser();
+						
+	}
+	
+	@Test
+	public void deleteTestCaseValidation() {
 		
-				
+		DbUnitUtil.executeDataFile("/dbunit/userDaoTest.xml", DB_DRIVER, DB_URL, DB_USERNAME, DB_PASSWORD);
+		
+		tablePage.initBrowserByUrl(PATH_HOST + PATH_CONTEXT);
+		
+		tablePage.checkIfPageLoaded();	
+		tablePage.clickLinkByText("Delete");
+		
+		tablePage.checkIfPageLoaded();	
+		tablePage.checkTextInFieldById("errorMessage", "Select at least on row");		
+		tablePage.pressButtonById("selectedUsersIds1");
+		tablePage.pressButtonById("selectedUsersIds2");
+		tablePage.clickLinkByText("Delete");
+		
+		tablePage.checkIfPageLoaded();	
+		tablePage.checkTextInFieldById("errorMessage", "Only one row can be selected");
+		
+		tablePage.closeBrowser();
+						
 	}
 	
 

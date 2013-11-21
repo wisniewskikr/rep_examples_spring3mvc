@@ -499,12 +499,12 @@
 		
 		<!-- Integration tests dependencies - 
 		javax/persistence/Persistence necessary class -->
-		<dependency>
+		<!-- dependency>
 			<groupId>javax.persistence</groupId>
 			<artifactId>toplink-essentials</artifactId>
 			<version>1.0</version>
 			<scope>test</scope>
-		</dependency>
+		</dependency -->
 		
 		<!-- Java API dependencies -->
 		<dependency>
