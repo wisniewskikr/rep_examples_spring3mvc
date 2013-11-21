@@ -497,15 +497,6 @@
         	<version>1.7</version>
       	</dependency>
 		
-		<!-- Integration tests dependencies - 
-		javax/persistence/Persistence necessary class -->
-		<!-- dependency>
-			<groupId>javax.persistence</groupId>
-			<artifactId>toplink-essentials</artifactId>
-			<version>1.0</version>
-			<scope>test</scope>
-		</dependency -->
-		
 		<!-- Java API dependencies -->
 		<dependency>
 		    <groupId>javax</groupId>
