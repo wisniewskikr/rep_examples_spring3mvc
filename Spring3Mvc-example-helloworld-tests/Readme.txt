@@ -8,9 +8,24 @@ This is example project built by using framework Spring 3 MVC. It consists of tw
 This project shows how to use framework Spring 3 MVC together with:
 - java script;
 - css;
-- validation.
+- validation;
+- unit tests (basing on JUnit and Mockito);
+- integration tests (basing on Selenium and Mockito).
 
-This project contains also unit and integration tests. 
+Recommended deployment of project:
+----------------------------------
+Maven command:
+mvn clean install -Ploc,deploy 
+
+Recommended usage of project:
+-----------------------------
+Browser url:
+http://localhost:8080/Spring3Mvc-example-helloworld-tests
+
+Recommended usage of integration tests:
+---------------------------------------
+Maven command:
+mvn clean install -Ploc,intg 
 
 
 
@@ -19,10 +34,17 @@ This project contains also unit and integration tests.
 PRECONDITIONS
 =============
 
+1. TOOLS
+--------
 This example project requires:
 - Java (tested for version 1.7.0_10);
 - Maven (tested for version 3.0.4);
 - Tomcat (tested for version 7.0.34).
+
+2. CONFIGURATION
+----------------
+All flexible configuration of project (server`s urls, logins, passwords etc.) can be changed in file:
+<project_home>/project.properties
 
 
 
@@ -78,17 +100,6 @@ Use Maven command for building and deployment project. Command:
 
 
 
-USAGE
-=====
-
-Type in browser:
-
-http://localhost:8080/Spring3Mvc-example-helloworld-tests
-
-
-
-
-
 UNIT TESTS
 ==========
 
@@ -103,7 +114,7 @@ To run unit tests you have to use maven command:
 INTEGRATION TESTS
 =================
 
-To run integration tests you have to:
+This project has set of integration tests based on Selenium tool. To run integration tests you have to:
 
 - Configure embedded Tomcat port (optional)
 In file <project_home>/project.properties you can change embedded Tomcat port.
@@ -112,3 +123,14 @@ Update property "loc.test.intg.port". By default it is "8181".
 - Run integration tests
 To run integration tests you have to use maven command:
 			mvn clean install -Ploc,intg
+
+
+
+
+
+USAGE
+=====
+
+Type in browser:
+
+http://localhost:8080/Spring3Mvc-example-helloworld-tests

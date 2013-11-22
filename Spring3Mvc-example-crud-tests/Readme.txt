@@ -15,8 +15,8 @@ This project shows how to use framework Spring 3 MVC together with:
 - css;
 - validation;
 - database;
-- unit tests;
-- integration tests (Selenium).
+- unit tests (basing on JUnit and Mockito);
+- integration tests (basing on Selenium and Mockito).
 
 Recommended deployment of project:
 ----------------------------------
@@ -57,13 +57,8 @@ file <project_home>/project.properties. He has to create following databases:
 - unit tests database			: for instance "spring3mvc-example-crud-tests-db-test-unit";
 - integration tests database	: for instance "spring3mvc-example-crud-tests-db-test-intg".
 
-
-
-
-
-CONFIGURATION
-=============
-
+3. CONFIGURATION
+----------------
 All flexible configuration of project (server`s urls, logins, passwords etc.) can be changed in file:
 <project_home>/project.properties
 
@@ -80,7 +75,7 @@ You can deploy this application in two ways:
 
 
 Ad 1\ Copy war file
-===================
+-------------------
 You can do it using following steps:
 - Open console;
 - Go to project folder;
@@ -92,7 +87,7 @@ You can do it using following steps:
 
 
 Ad 2\ Use Maven plugin for deployment
-=====================================  
+------------------------------------- 
 You can do it using following steps:
 - Go to <tomcat_home>/conf/tomcat-users.xml and add user in manager role. For instance:
 
@@ -111,13 +106,29 @@ You can do it using following steps:
 
 
 
+UNIT TESTS
+==========
+
+To run unit tests you have to use maven command:
+
+		mvn clean install -Ploc,unit
+
+
+
+
+
 INTEGRATION TESTS
 =================
 
-This project has set of integration tests based on Selenium tool. To run these integration
-tests use following maven command:
+This project has set of integration tests based on Selenium tool. To run integration tests you have to:
 
-mvn clean install -Ploc,intg
+- Configure embedded Tomcat port (optional)
+In file <project_home>/project.properties you can change embedded Tomcat port.
+Update property "loc.test.intg.port". By default it is "8181".
+
+- Run integration tests
+To run integration tests you have to use maven command:
+			mvn clean install -Ploc,intg
 
 
 

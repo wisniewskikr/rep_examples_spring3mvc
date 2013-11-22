@@ -16,6 +16,16 @@ This project shows how to use framework Spring 3 MVC together with:
 - validation;
 - database.
 
+Recommended deployment of project:
+----------------------------------
+Maven command:
+mvn clean install -Ploc,deploy 
+
+Recommended usage of project:
+-----------------------------
+Browser url:
+http://localhost:8080/Spring3Mvc-example-crud
+
 
 
 
@@ -23,11 +33,18 @@ This project shows how to use framework Spring 3 MVC together with:
 PRECONDITIONS
 =============
 
+1. TOOLS
+--------
 This example project requires:
 - Java (tested for version 1.7.0_10);
 - Maven (tested for version 3.0.4);
 - Tomcat (tested for version 7.0.34);
 - MySql (tested for version 5.2.38).
+
+2. CONFIGURATION
+----------------
+All flexible configuration of project (server`s urls, logins, passwords etc.) can be changed in file:
+<project_home>/project.properties
 
 
 
