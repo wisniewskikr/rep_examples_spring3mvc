@@ -5,7 +5,7 @@
 
 	<groupId>pl.kwi</groupId>
 	<artifactId>Spring3Mvc-example-helloworld-tests</artifactId>
-	<packaging>war</packaging>
+	<packaging>pom</packaging>
 	<version>1.0</version>
 	<modelVersion>4.0.0</modelVersion>
 	<name>${project.artifactId}</name>
@@ -41,122 +41,32 @@
 				<test.intg.path.context>${project.artifactId}</test.intg.path.context>
 			</properties>							
 		</profile>
-		
+
 		<!-- Profile 'deploy': task profile.
 		Deploys project on computer indicated by location profile. -->
 		<profile>
-			<id>deploy</id>									
-			<build>
-				<plugins>
-					<!-- Skip unit tests -->
-					<plugin>
-			            <groupId>org.apache.maven.plugins</groupId>
-			            <artifactId>maven-surefire-plugin</artifactId>
-			            <configuration>			            	
-			                <skip>true</skip>
-			            </configuration>
-			        </plugin>						
-					<plugin>
-				        <groupId>org.apache.tomcat.maven</groupId>
-		          		<artifactId>tomcat7-maven-plugin</artifactId>
-		          		<version>2.0</version>
-				        <executions>
-				        	<execution>
-				        		<phase>pre-integration-test</phase>
-				        		<goals>
-				        			<goal>deploy</goal>
-				        		</goals>
-				        	</execution>
-				        </executions>
-				        <configuration>
-				        	<url>${server.url}</url>
-				        	<username>${server.username}</username>
-		          			<password>${server.password}</password>
-		          			<path>${server.path}</path>
-                            <update>true</update>
-				        </configuration>
-				      </plugin>			          
-				</plugins>
-			</build>						
-		</profile>
+			<id>deploy</id>
+			<modules>
+				<module>Spring3Mvc-example-helloworld-tests-war</module>
+			</modules>
+		</profile>	
 		
 		<!-- Profile 'unit': task profile.
 		Runs unit tests. -->
 		<profile>
 			<id>unit</id>
-			<activation>
-	            <activeByDefault>true</activeByDefault>
-	        </activation>			
-			<build>
-				<plugins>
-					<!-- Unit tests -->
-					<plugin>
-			            <groupId>org.apache.maven.plugins</groupId>
-			            <artifactId>maven-surefire-plugin</artifactId>
-			            <configuration>			            	
-			                <skip>true</skip>			                
-			            </configuration>
-			            <executions>
-					       <execution>
-					          <id>unit-tests</id>
-					          <phase>test</phase>
-					          <goals>
-					             <goal>test</goal>
-					          </goals>
-					          <configuration>			            	
-			                	<skip>false</skip>
-			                	<includes>
-            						<include>**/*Test.java</include>
-            					</includes>
-			                	<excludes>
-                					<exclude>**/IntgTests.java</exclude>
-            					</excludes>			                
-			            	  </configuration>
-					        </execution>					        
-					     </executions>			              
-			        </plugin>			        
-				</plugins>
-			</build>			
+			<modules>
+				<module>Spring3Mvc-example-helloworld-tests-war</module>
+			</modules>
 		</profile>
-				
+		
 		<!-- Profile 'intg' (abbreviation for 'integration'): task profile.
 		Runs integration tests. -->
 		<profile>
-			<id>intg</id>			
-			<build>
-				<plugins>
-					<!-- Integration tests -->
-					<plugin>
-			            <groupId>org.apache.maven.plugins</groupId>
-			            <artifactId>maven-surefire-plugin</artifactId>
-			            <configuration>			            	
-			                <skip>true</skip>			                 			                
-			            </configuration>
-			            <executions>
-					        <execution>
-					          <id>integration-tests</id>
-					          <phase>test</phase>
-					          <goals>
-					             <goal>test</goal>
-					          </goals>
-					          <configuration>			            	
-			                	<skip>false</skip>
-			                	<systemPropertyVariables>
-						            <test.intg.path.host>${test.intg.path.host}</test.intg.path.host>
-						            <test.intg.path.context>${test.intg.path.context}</test.intg.path.context>
-						          </systemPropertyVariables>			                	
-            					<includes>
-            						<include>**/IntgTests.java</include>
-            					</includes>
-            					<excludes>
-                					<exclude>**/*Test.java</exclude>
-            					</excludes>			                
-			            	  </configuration>
-					        </execution>
-					     </executions>			              
-			        </plugin>			        
-				</plugins>
-			</build>			
+			<id>intg</id>
+			<modules>
+				<module>Spring3Mvc-example-helloworld-tests-intg</module>
+			</modules>
 		</profile>
 	
 	</profiles>
@@ -165,19 +75,6 @@
 
 	<build>		
 		<finalName>${artifactId}</finalName>
-		
-		<resources>		
-			<resource>
-				<directory>src/main/resources</directory>
-				<filtering>true</filtering>
-			</resource>
-		</resources>
-		<testResources>
-			<testResource>
-				<directory>src/test/resources</directory>
-				<filtering>true</filtering>
-			</testResource>
-		</testResources>
 		
 		<plugins>
 		
@@ -214,123 +111,5 @@
 		</plugins>
 		
 	</build>
-
-
-
-	<dependencies>		
-		
-		<!-- Spring dependencies -->
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-webmvc</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-		
-		<!-- Validation dependencies -->
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-validator</artifactId>
-			<version>4.2.0.Final</version>
-		</dependency>
-		
-		<!-- Servlet dependencies -->
-		<!-- dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
-			<version>2.5</version>
-			<scope>provided</scope>
-		</dependency -->	
-				
-		<!-- Unit tests dependencies -->
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.11</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.mockito</groupId>
-			<artifactId>mockito-all</artifactId>
-			<version>1.8.5</version>
-			<scope>test</scope>
-		</dependency>
-		
-		<!-- Integration tests dependencies - 
-		Arquillian common dependencies -->
-		<dependency>
-		    <groupId>org.jboss.arquillian.junit</groupId>
-		    <artifactId>arquillian-junit-container</artifactId>
-		    <version>1.0.3.Final</version>
-		    <scope>test</scope>
-		</dependency>
-		<dependency>
-    		<groupId>org.jboss.shrinkwrap.resolver</groupId>
-    		<artifactId>shrinkwrap-resolver-impl-maven</artifactId>
-    		<version>1.1.0-alpha-1</version>
-    		<scope>test</scope>
-		</dependency>
-		
-		<!-- Integration tests dependencies - 
-		Arquillian tomcat-7-embedded dependencies -->
-		<dependency>
-	         <groupId>org.jboss.arquillian.container</groupId>
-	         <artifactId>arquillian-tomcat-embedded-7</artifactId>
-	         <version>1.0.0.CR3</version>
-	         <scope>test</scope>
-	      </dependency>
-	      <dependency>
-	         <groupId>org.apache.tomcat.embed</groupId>
-	         <artifactId>tomcat-embed-core</artifactId>
-	         <version>7.0.19</version>
-	         <scope>test</scope>
-	      </dependency>
-	      <dependency>
-	         <groupId>org.apache.tomcat.embed</groupId>
-	         <artifactId>tomcat-embed-jasper</artifactId>
-	         <version>7.0.19</version>
-	         <scope>test</scope>
-	      </dependency>
-	      <dependency>
-	         <groupId>org.eclipse.jdt.core.compiler</groupId>
-	         <artifactId>ecj</artifactId>
-	         <version>3.7</version>
-	         <scope>test</scope>
-	      </dependency>	
-	      <dependency>
-		    <groupId>org.apache.tomcat</groupId>
-		    <artifactId>juli</artifactId>
-		    <version>6.0.13</version>
-		    <scope>test</scope>
-		</dependency>
-	
-		<!-- Integration tests dependencies - 
-		Selenium dependencies -->
-		<dependency>
-			<groupId>org.seleniumhq.selenium</groupId>
-			<artifactId>selenium-java</artifactId>
-			<version>2.24.1</version>
-			<scope>test</scope>
-		</dependency>
-		
-		<!-- Integration tests dependencies - 
-		javax/persistence/Persistence necessary class -->
-		<dependency>
-			<groupId>javax.persistence</groupId>
-			<artifactId>toplink-essentials</artifactId>
-			<version>1.0</version>
-			<scope>test</scope>
-		</dependency>	
-		
-		<!-- Java API dependencies -->
-		<dependency>
-		    <groupId>javax</groupId>
-		    <artifactId>javaee-api</artifactId>
-		    <version>6.0</version>
-		    <scope>provided</scope>
-		</dependency>
-						
-	</dependencies>
-
-
 
 </project>
