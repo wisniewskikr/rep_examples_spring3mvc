@@ -41,6 +41,18 @@
 				<test.intg.path.context>${project.artifactId}</test.intg.path.context>
 			</properties>							
 		</profile>
+		
+		<!-- Profile 'unit': task profile.
+		Runs unit tests. -->
+		<profile>
+			<id>unit</id>
+			<activation>
+	            <activeByDefault>true</activeByDefault>
+	        </activation>
+			<modules>
+				<module>Spring3Mvc-example-helloworld-tests-war</module>
+			</modules>
+		</profile>
 
 		<!-- Profile 'deploy': task profile.
 		Deploys project on computer indicated by location profile. -->
@@ -49,16 +61,7 @@
 			<modules>
 				<module>Spring3Mvc-example-helloworld-tests-war</module>
 			</modules>
-		</profile>	
-		
-		<!-- Profile 'unit': task profile.
-		Runs unit tests. -->
-		<profile>
-			<id>unit</id>
-			<modules>
-				<module>Spring3Mvc-example-helloworld-tests-war</module>
-			</modules>
-		</profile>
+		</profile>		
 		
 		<!-- Profile 'intg' (abbreviation for 'integration'): task profile.
 		Runs integration tests. -->
