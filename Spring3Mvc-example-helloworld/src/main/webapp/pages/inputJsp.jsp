@@ -8,7 +8,7 @@
 
 
 <head>
-	<title>Hello World</title>
+	<title>Hello World - Input</title>
 	<base href="${pageContext.request.contextPath}/">
 	<link type="text/css" rel="stylesheet" href="css/style.css">
 	<link type="text/css" rel="stylesheet" href="css/jquery-ui-1.10.3/smoothness/jquery-ui-1.10.3.custom.css">
@@ -22,9 +22,9 @@
 <spring:form method="post" action="input/handle-button-ok" commandName="command">
 
 	<div class="page">
-		<div class="title"><h2>Hello World</h2></div>
-		<div class="subtitle"><h3>Page: <b>Input</b></h3></div>
-		<div class="content">
+		<div id="title" name="title" class="title"><h2>Hello World</h2></div>
+		<div id="subtitle" name="subtitle" class="subtitle"><h3>Page: <b>Input</b></h3></div>
+		<div id="content" name="content" class="content">
 			<div class="contentElement">
 				<div class="text">Name * <spring:errors path="name" cssClass="error" /> </div>
 				<div class="input"><input type="text" id="name" name="name" value="${name}" /></div>
@@ -32,7 +32,7 @@
 			</div>
 			
 		</div>
-		<div class="buttons">
+		<div id="buttons" name="buttons" class="buttons">
 			<input type="submit" id="ok" name="ok" value="OK" title="Go to next page"/>
 		</div>
 	</div>		
