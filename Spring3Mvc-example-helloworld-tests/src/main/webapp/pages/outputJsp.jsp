@@ -22,17 +22,17 @@
 <spring:form method="post" action="output/handle-button-back" commandName="command">
 
 	<div class="page">
-		<div id="title" name="title" class="title"><h2>Hello World</h2></div>
-		<div id="subtitle" name="subtitle" class="subtitle"><h3>Page: <b>Output</b></h3></div>
-		<div id="content" name="content" class="content">
+		<div id="title" class="title"><h2>Hello World</h2></div>
+		<div id="subtitle" class="subtitle"><h3>Page: <b>Output</b></h3></div>
+		<div id="content" class="content">
 			<div class="contentElement">
 				<div>&nbsp;</div>
-				<div id="name" name="name" class="text"> Hello World <b>${command.name}</b> </div>
-				<div>&nbsp;</div>
+				<div id="name" class="text"> Hello World <b>${command.name}</b> </div>
+				<div class="image"><img id="duke" alt="duke" src="images/duke.jpg"></div>
 			</div>
 			
 		</div>
-		<div id="buttons" name="buttons" class="buttons">
+		<div id="buttons" class="buttons">
 			<input type="submit" id="back" name="back" value="Back" title="Go back to previous page"/>
 		</div>
 	</div>		
